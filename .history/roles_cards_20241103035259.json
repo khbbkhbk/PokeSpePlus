@@ -1,0 +1,127 @@
+[
+  {
+    "groupName": "Group 1",
+    "cards": [
+        {
+            "id": "card11",
+            "name": "玛琪艾儿",
+            "image":"https://media.52poke.com/wiki/e/ec/%E8%B5%A4%E7%BA%A2_OD_GSC.png",
+            "details": [
+                {"key": "首次", "value": "✅"},
+                {"key": "形式", "value": "径出"},
+                {"key": "表现", "value": "剪影"}
+            ]
+        },
+        {
+            "id": "card12",
+            "name": "艾丝普莉",
+            "image":"https://media.52poke.com/wiki/e/ec/%E8%B5%A4%E7%BA%A2_OD_GSC.png",
+            "details": [
+            {"key": "首次", "value": "✅"},
+            {"key": "形式", "value": "引出"},
+            {"key": "表现", "value": "回忆"}
+            ]
+        }
+    ]
+  },
+  {
+    "groupName": "Group 2",
+    "cards": [
+      {
+            "id": "card21",
+            "name": "帅哥",
+            "image":"https://media.52poke.com/wiki/e/ec/%E8%B5%A4%E7%BA%A2_OD_GSC.png",
+            "details": [
+                {"key": "首次", "value": "✅"},
+                {"key": "形式", "value": "径出"},
+                {"key": "表现", "value": "画像"}
+            ]
+        },
+        {
+            "id": "card22",
+            "name": "大田一郎",
+            "image":"https://media.52poke.com/wiki/e/ec/%E8%B5%A4%E7%BA%A2_OD_GSC.png",
+            "details": [
+                {"key": "首次", "value": "✅"},
+                {"key": "形式", "value": "引出"},
+                {"key": "表现", "value": "提及"}
+            ]
+        }
+    ]
+  },
+  {
+    "groupName": "Group 2",
+    "cards": [
+      {
+            "id": "card21",
+            "name": "帅哥",
+            "image":"https://media.52poke.com/wiki/e/ec/%E8%B5%A4%E7%BA%A2_OD_GSC.png",
+            "details": [
+                {"key": "首次", "value": "✅"},
+                {"key": "形式", "value": "径出"},
+                {"key": "表现", "value": "画像"}
+            ]
+        },
+        {
+            "id": "card22",
+            "name": "大田一郎",
+            "image":"https://media.52poke.com/wiki/e/ec/%E8%B5%A4%E7%BA%A2_OD_GSC.png",
+            "details": [
+                {"key": "首次", "value": "✅"},
+                {"key": "形式", "value": "引出"},
+                {"key": "表现", "value": "提及"}
+            ]
+        }
+    ]
+  },
+  {
+    "groupName": "Group 2",
+    "cards": [
+      {
+            "id": "card21",
+            "name": "帅哥",
+            "image":"https://media.52poke.com/wiki/e/ec/%E8%B5%A4%E7%BA%A2_OD_GSC.png",
+            "details": [
+                {"key": "首次", "value": "✅"},
+                {"key": "形式", "value": "径出"},
+                {"key": "表现", "value": "画像"}
+            ]
+        },
+        {
+            "id": "card22",
+            "name": "大田一郎",
+            "image":"https://media.52poke.com/wiki/e/ec/%E8%B5%A4%E7%BA%A2_OD_GSC.png",
+            "details": [
+                {"key": "首次", "value": "✅"},
+                {"key": "形式", "value": "引出"},
+                {"key": "表现", "value": "提及"}
+            ]
+        }
+    ]
+  },
+  {
+    "groupName": "Group 2",
+    "cards": [
+      {
+            "id": "card21",
+            "name": "帅哥",
+            "image":"https://media.52poke.com/wiki/e/ec/%E8%B5%A4%E7%BA%A2_OD_GSC.png",
+            "details": [
+                {"key": "首次", "value": "✅"},
+                {"key": "形式", "value": "径出"},
+                {"key": "表现", "value": "画像"}
+            ]
+        },
+        {
+            "id": "card22",
+            "name": "大田一郎",
+            "image":"https://media.52poke.com/wiki/e/ec/%E8%B5%A4%E7%BA%A2_OD_GSC.png",
+            "details": [
+                {"key": "首次", "value": "✅"},
+                {"key": "形式", "value": "引出"},
+                {"key": "表现", "value": "提及"}
+            ]
+        }
+    ]
+  }
+]
