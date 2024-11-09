@@ -6,7 +6,7 @@
     <!-- <link rel="stylesheet" href="http://localhost:8080/normalize.css"> -->
     <script src="style.js"></script>
     <script>
-        document.addEventListener("DOMContentLoaded", () => { // 确保DOM元素已经加载完成
+        document.addEventListener("DOMContentLoaded", function() { // 确保DOM元素已经加载完成
             add_icon_check("icon_check_father");
             add_icon("icon_F_father");
             add_icon("icon_M_father");
@@ -204,15 +204,12 @@
             <td>备注</td>
         </tr>
         <tr style="white-space: nowrap;">
-            <td rowspan="4">超梦</td>
-            <td rowspan="4" style="position: relative; width:2em;height: 2em;" onclick="showstyleview(this)">
+            <td rowspan="2">超梦</td>
+            <td rowspan="2" style="position: relative; width:2em;height: 2em;" onclick="showstyleview(this)">
                 <span style="position: absolute; cursor: pointer; bottom: 0; left: 0; width: 0; height: 0;  border-right: 10px solid transparent; border-bottom: 10px solid red;"></span>
-                <div style="display: flex; width: 100%; flex-direction: column; gap: 1rem">
-                    <img src="./素材/超梦.webp" style="width: 100%;">
-                    <img src="./素材/超梦.webp" style="width: 100%;">
-                </div>
+                <img src="./素材/超梦.webp" style="position: absolute;top: 25%;left: 50%;width:2em;transform: translate(-50%, -50%);">
+                <img src="./素材/超梦.webp" style="position: absolute;top: 75%;left: 50%;width:2em;transform: translate(-50%, -50%);">
             </td>
-            <td></td>
             <td style="position: relative;" class="icon_check_father">
             </td>
             <td style="position: relative;" class="icon_F_father">
@@ -245,6 +242,13 @@
             <td>已进化</td>
         </tr>
         <tr style="white-space: nowrap;">
+            <td style="position: relative; width:2em;height: 2em;" rowspan="2">
+                <img src="./素材/超梦.webp" class="poke_dream">
+            </td>
+            <td style="position: relative; width:2em;height: 2em;">
+                <img src="./素材/超梦.webp" class="poke_dream">
+            </td>
+            <td rowspan="2">超梦</td>
             <td></td>
             <td style="position: relative;" class="icon_check_father">
             </td>
@@ -260,6 +264,9 @@
             <td>新进化</td>
         </tr>
         <tr style="white-space: nowrap;">
+            <td style="position: relative; width:2em;height: 2em;">
+                <img src="./素材/超梦.webp" class="poke_dream">
+            </td>
             <td>超级超梦Ｙ<br/><small>×2</small></td>
             <td style="position: relative;" class="icon_check_father">
             </td>

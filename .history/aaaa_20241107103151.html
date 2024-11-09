@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        .card-container {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            width: inherit;
+            padding: 20px;
+            gap: 1%;
+            }
+        .card-gropup {
+            display: flex;
+            flex-direction: column;
+            width: 20%;
+            font-size: 16px;
+            border-radius: 14px;
+            border: 1px solid black;
+            cursor: pointer;
+            transition: 0.3s ease;
+            flex-grow: 1;
+            &:hover {
+                transform: scale(1.02);
+            }
+        }
+    </style>
+    <h2 style="border-bottom: 1px solid #a2a9b1;"><span title="原名：二名视图" style="border-bottom: 1px dotted black;">卡片视图</span></h2>
+    <div style="border: 1px solid black;">
+        <div class="card-container">
+            <div class="card-gropup">1</div>
+            <div class="card-gropup">2</div>
+            <div class="card-gropup">3</div>
+            <div class="card-gropup">4</div>
+            <div class="card-gropup">5</div>
+            <div class="card-gropup">6</div>
+            <div class="card-gropup">7</div>
+        </div>
+    </div>
+
+
+</body>
+</html>

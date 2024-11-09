@@ -4,15 +4,6 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="normalize.css">
     <!-- <link rel="stylesheet" href="http://localhost:8080/normalize.css"> -->
-    <script src="style.js"></script>
-    <script>
-        document.addEventListener("DOMContentLoaded", () => { // 确保DOM元素已经加载完成
-            add_icon_check("icon_check_father");
-            add_icon("icon_F_father");
-            add_icon("icon_M_father");
-            add_icon("icon_N_father");
-        });
-    </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>形态视图</title>
     <style>
@@ -184,15 +175,11 @@
     </style>
 </head>
 <body>
-    <div>形态视图说明
-        <div>1.点击形态左下角的标志，弹出当前宝可梦的形态视图</div>
-        <div>2.单击切换形态视图按钮，弹出可以查看所有在当前话中发生形态变化或进化的宝可梦的形态视图的窗口，上面具有选择器，选择宝可梦种类</div>
-    </div>
-
-    <table cellpadding="10" cellspacing="0" style="text-align: center; margin:0 auto;border: 1px solid black; margin-bottom:10px;margin-top:10px; font-size: 1.3vw;">
+    <table cellpadding="10" cellspacing="0" style="text-align: center; margin:0 auto;border: 1px solid black; margin-bottom:10px;margin-top:10px">
         <tr style="white-space: nowrap;">
-            <td colspan="2">宝可梦&肖像</td>
-            <td>形态名</td>
+            <td>肖像</td>
+            <td>宝可梦</td>
+            <td>形态</td>
             <td>异色</td>
             <td>性别</td>
             <td>异称</td>
@@ -204,40 +191,29 @@
             <td>备注</td>
         </tr>
         <tr style="white-space: nowrap;">
-            <td rowspan="4">超梦</td>
-            <td rowspan="4" style="position: relative; width:2em;height: 2em;" onclick="showstyleview(this)">
-                <span style="position: absolute; cursor: pointer; bottom: 0; left: 0; width: 0; height: 0;  border-right: 10px solid transparent; border-bottom: 10px solid red;"></span>
-                <div style="display: flex; width: 100%; flex-direction: column; gap: 1rem">
-                    <img src="./素材/超梦.webp" style="width: 100%;">
-                    <img src="./素材/超梦.webp" style="width: 100%;">
-                </div>
+            <td style="position: relative;">
+                <img src="./素材/超梦.webp" class="poke_dream">
             </td>
-            <td></td>
-            <td style="position: relative;" class="icon_check_father">
+            <td rowspan=2>超梦
+                <!-- <div style="margin-top: 0.5em; font-size: smaller;">（超级超梦Ｘ）</div>×3</td> -->
+            <td style="padding-bottom: 0px;">超级超梦Ｘ</td>
+            <td style="position: relative;">
+                <svg t="1730718794814" class="icon_check" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="9758">
+                    <path d="M0 512C0 229.234759 229.234759 0 512 0s512 229.234759 512 512-229.234759 512-512 512S0 794.765241 0 512z m419.310345 194.630621a35.310345 35.310345 0 0 0 49.399172 1.271172l335.518897-311.931586a35.310345 35.310345 0 0 0-48.075035-51.729655l-309.124413 289.544827-145.125518-149.645241a35.310345 35.310345 0 1 0-50.688 49.169655l168.112552 173.320828z" fill="#00D26A" p-id="9759"></path>
+                </svg>
             </td>
-            <td style="position: relative;" class="icon_F_father">
+            <td style="position: relative;">
+                <svg t="1730716487085" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5742"><path d="M512 512m-512 0a512 512 0 1 0 1024 0 512 512 0 1 0-1024 0Z" fill="#4F90F8" p-id="5743"></path><path d="M457.408 391.68c-99.2 0-179.648 79.616-179.648 177.536s80.576 177.536 179.648 177.536c99.008 0 179.712-79.68 179.712-177.536-0.064-97.92-80.64-177.536-179.712-177.536z m373.312 45.056h-85.12v-95.36l-74.624 73.856c33.152 44.48 51.136 98.432 51.2 153.92 0 144.256-118.784 261.568-264.768 261.568-145.984 0-264.768-117.312-264.768-261.568 0-144.192 118.784-261.568 264.768-261.568 57.088 0 109.76 18.112 152.96 48.512l80.512-79.488H582.592V192.576h248.128v244.16z" fill="#FFFFFF" p-id="5744"></path></svg>
             </td>
-            <td>代号 个体一</td>
-            <td>训练家学校</td>
-            <td style="position: relative;" class="icon_check_father">
-            </td>
-            <td>回忆</td>
-            <td>剪影</td>
-            <td>鬼魂</td>
-            <td>新进化</td>
-        </tr>
-        <tr style="white-space: nowrap;">
-            <td>超级超梦Ｘ</td>
-            <td style="position: relative;" class="icon_check_father">
-            </td>
-            <td style="position: relative;" class="icon_M_father">
-            </td>
-            <td style="position: relative;" onclick="showDetails(this)"><span style="position: absolute; cursor: pointer; top: 0; right: 0; width: 0; height: 0;  border-left: 10px solid transparent; border-top: 10px solid red;"></span>👤 昵称 哲哲</td>
+            <td style="position: relative; padding:0 1em 0 0;" onclick="showDetails(this)"><span style="position: absolute; cursor: pointer; top: 0; right: 0; width: 0; height: 0;  border-left: 10px solid transparent; border-top: 10px solid red;"></span>👤 昵称 哲哲</td>
             <td style="position: relative;" onclick="showDetails(this)">
                 <button style="width:10px; height:10px;position: absolute;top: 0;right: 0; cursor: pointer;">-</button>
                 可可布尔→艾克斯
             </td>
-            <td style="position: relative;" class="icon_check_father">
+            <td style="position: relative;">
+                <svg t="1730718794814" class="icon_check" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="9758">
+                    <path d="M0 512C0 229.234759 229.234759 0 512 0s512 229.234759 512 512-229.234759 512-512 512S0 794.765241 0 512z m419.310345 194.630621a35.310345 35.310345 0 0 0 49.399172 1.271172l335.518897-311.931586a35.310345 35.310345 0 0 0-48.075035-51.729655l-309.124413 289.544827-145.125518-149.645241a35.310345 35.310345 0 1 0-50.688 49.169655l168.112552 173.320828z" fill="#00D26A" p-id="9759"></path>
+                </svg>
             </td>
             <td>径出</td>
             <td>形出</td>
@@ -245,32 +221,27 @@
             <td>已进化</td>
         </tr>
         <tr style="white-space: nowrap;">
-            <td></td>
-            <td style="position: relative;" class="icon_check_father">
+            <td style="position: relative;">
+                <img src="./素材/超梦.webp" class="poke_dream">
             </td>
-            <td style="position: relative;" class="icon_F_father">
+            <td style="padding-bottom: 0px;">超级超梦Ｙ<br/><small>×2</small></td>
+            <td style="position: relative;">
+                <svg t="1730718794814" class="icon_check" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="9758">
+                    <path d="M0 512C0 229.234759 229.234759 0 512 0s512 229.234759 512 512-229.234759 512-512 512S0 794.765241 0 512z m419.310345 194.630621a35.310345 35.310345 0 0 0 49.399172 1.271172l335.518897-311.931586a35.310345 35.310345 0 0 0-48.075035-51.729655l-309.124413 289.544827-145.125518-149.645241a35.310345 35.310345 0 1 0-50.688 49.169655l168.112552 173.320828z" fill="#00D26A" p-id="9759"></path>
+                </svg>
             </td>
-            <td>代号 个体一</td>
-            <td>训练家学校</td>
-            <td style="position: relative;" class="icon_check_father">
+            <td style="position: relative;">
+                <svg t="1730716487085" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5742"><path d="M512 512m-512 0a512 512 0 1 0 1024 0 512 512 0 1 0-1024 0Z" fill="#4F90F8" p-id="5743"></path><path d="M457.408 391.68c-99.2 0-179.648 79.616-179.648 177.536s80.576 177.536 179.648 177.536c99.008 0 179.712-79.68 179.712-177.536-0.064-97.92-80.64-177.536-179.712-177.536z m373.312 45.056h-85.12v-95.36l-74.624 73.856c33.152 44.48 51.136 98.432 51.2 153.92 0 144.256-118.784 261.568-264.768 261.568-145.984 0-264.768-117.312-264.768-261.568 0-144.192 118.784-261.568 264.768-261.568 57.088 0 109.76 18.112 152.96 48.512l80.512-79.488H582.592V192.576h248.128v244.16z" fill="#FFFFFF" p-id="5744"></path></svg>
             </td>
-            <td>回忆</td>
-            <td>剪影</td>
-            <td>鬼魂</td>
-            <td>新进化</td>
-        </tr>
-        <tr style="white-space: nowrap;">
-            <td>超级超梦Ｙ<br/><small>×2</small></td>
-            <td style="position: relative;" class="icon_check_father">
-            </td>
-            <td style="position: relative;" class="icon_M_father">
-            </td>
-            <td style="position: relative;" onclick="showDetails(this)"><span style="position: absolute; cursor: pointer; top: 0; right: 0; width: 0; height: 0;  border-left: 10px solid transparent; border-top: 10px solid red;"></span>👤 昵称 哲哲</td>
+            <td style="position: relative; padding:0 1em 0 0;" onclick="showDetails(this)"><span style="position: absolute; cursor: pointer; top: 0; right: 0; width: 0; height: 0;  border-left: 10px solid transparent; border-top: 10px solid red;"></span>👤 昵称 哲哲</td>
             <td style="position: relative;" onclick="showDetails(this)">
                 <button style="width:10px; height:10px;position: absolute;top: 0;right: 0; cursor: pointer;">-</button>
                 可可布尔→艾克斯
             </td>
-            <td style="position: relative;" class="icon_check_father">
+            <td style="position: relative;">
+                <svg t="1730718794814" class="icon_check" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="9758">
+                    <path d="M0 512C0 229.234759 229.234759 0 512 0s512 229.234759 512 512-229.234759 512-512 512S0 794.765241 0 512z m419.310345 194.630621a35.310345 35.310345 0 0 0 49.399172 1.271172l335.518897-311.931586a35.310345 35.310345 0 0 0-48.075035-51.729655l-309.124413 289.544827-145.125518-149.645241a35.310345 35.310345 0 1 0-50.688 49.169655l168.112552 173.320828z" fill="#00D26A" p-id="9759"></path>
+                </svg>
             </td>
             <td>径出</td>
             <td>形出</td>
@@ -278,18 +249,30 @@
             <td>已进化</td>
         </tr>
         <tr style="white-space: nowrap;">
-            <td style="position: relative; width:2em;height: 2em;" colspan="2">
+            <td style="position: relative;">
                 <img src="./素材/超梦.webp" class="poke_dream">
             </td>
-            <td>武道熊师<br>连击流</td>
-            <td>超极巨化的样子<br/><small>×2</small></td>
-            <td style="position: relative;" class="icon_check_father">
+            <td>武道熊师</td>
+            <td style="position: relative;">
+                <img src="./素材/超梦.webp" class="poke_dream">
             </td>
-            <td style="position: relative;" class="icon_F_father">
+            <td>超极巨化<br/>×2</td>
+            <td style="position: relative;">
+                <svg t="1730718794814" class="icon_check" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="9758">
+                    <path d="M0 512C0 229.234759 229.234759 0 512 0s512 229.234759 512 512-229.234759 512-512 512S0 794.765241 0 512z m419.310345 194.630621a35.310345 35.310345 0 0 0 49.399172 1.271172l335.518897-311.931586a35.310345 35.310345 0 0 0-48.075035-51.729655l-309.124413 289.544827-145.125518-149.645241a35.310345 35.310345 0 1 0-50.688 49.169655l168.112552 173.320828z" fill="#00D26A" p-id="9759"></path>
+                </svg>
+            </td>
+            <td style="position: relative;">
+                <svg t="1730717079128" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1912">
+                    <path d="M512 512m-512 0a512 512 0 1 0 1024 0 512 512 0 1 0-1024 0Z" fill="#FF6582" p-id="1913"></path>
+                    <path d="M601.6 207.616a228.608 228.608 0 0 0-195.712 346.432l-65.6 54.784L253.632 506.24l-56.128 47.36 86.4 102.4L192.64 732.16l47.104 56.448 91.52-76.48 86.528 102.4 56.192-47.36-86.272-102.208 65.728-54.912a226.56 226.56 0 0 0 148.16 54.592c61.376 0 118.976-23.68 162.176-66.752a227.2 227.2 0 0 0 67.072-162.048A229.056 229.056 0 0 0 601.6 207.616z m0 383.552a155.008 155.008 0 1 1 0-310.08 155.456 155.456 0 0 1 155.712 154.88A155.648 155.648 0 0 1 601.6 591.104z" fill="#FFFFFF" p-id="1914"></path></svg>
             </td>
             <td>代号 个体一</td>
             <td>训练家学校</td>
-            <td style="position: relative;" class="icon_check_father">
+            <td style="position: relative;">
+                <svg t="1730718794814" class="icon_check" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="9758">
+                    <path d="M0 512C0 229.234759 229.234759 0 512 0s512 229.234759 512 512-229.234759 512-512 512S0 794.765241 0 512z m419.310345 194.630621a35.310345 35.310345 0 0 0 49.399172 1.271172l335.518897-311.931586a35.310345 35.310345 0 0 0-48.075035-51.729655l-309.124413 289.544827-145.125518-149.645241a35.310345 35.310345 0 1 0-50.688 49.169655l168.112552 173.320828z" fill="#00D26A" p-id="9759"></path>
+                </svg>
             </td>
             <td>回忆</td>
             <td>剪影</td>
@@ -297,24 +280,36 @@
             <td>新进化</td>
         </tr>
         <tr style="white-space: nowrap;">
-            <td style="position: relative; width:2em;height: 2em;" rowspan="2">
+            <td style="position: relative;">
                 <img src="./素材/超梦.webp" class="poke_dream">
             </td>
-            <td style="position: relative; width:2em;height: 2em;">
+            <td>奈克洛兹玛</td>
+            <td style="position: relative;">
                 <img src="./素材/超梦.webp" class="poke_dream">
             </td>
-            <td rowspan="2">奈克洛兹玛</td>
-            <td>黄昏之鬃</td>
-            <td style="position: relative;" class="icon_check_father">
+            <td>拂晓之翼<br/>究极爆发</td>
+            <td style="position: relative;">
+                <svg t="1730718794814" class="icon_check" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="9758">
+                    <path d="M0 512C0 229.234759 229.234759 0 512 0s512 229.234759 512 512-229.234759 512-512 512S0 794.765241 0 512z m419.310345 194.630621a35.310345 35.310345 0 0 0 49.399172 1.271172l335.518897-311.931586a35.310345 35.310345 0 0 0-48.075035-51.729655l-309.124413 289.544827-145.125518-149.645241a35.310345 35.310345 0 1 0-50.688 49.169655l168.112552 173.320828z" fill="#00D26A" p-id="9759"></path>
+                </svg>
             </td>
-            <td style="position: relative;" class="icon_N_father">
+            <td style="position: relative;">
+                <svg t="1730717986002" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2238">
+                    <path d="M512 512m-512 0a512 512 0 1 0 1024 0 512 512 0 1 0-1024 0Z" fill="#909399" p-id="1913"></path>
+                    <g transform="translate(170, 120) scale(0.7)"><!-- 缩小 -->
+                        <path d="M923.496569 583.465285a53.535499 53.535499 0 0 1-11.055131 72.267805l-6.653552 4.503943-306.57518 176.882107 150.063176 86.700894a53.535499 53.535499 0 0 1-46.472498 96.220591l-7.165363-3.582682-203.598675-117.511955L288.543032 1016.457943a53.535499 53.535499 0 0 1-60.086688-88.236329l6.551189-4.40158 149.960815-86.700894L78.49553 660.237033a53.535499 53.535499 0 0 1 46.472498-96.220591l7.063001 3.377957 360.008317 207.897893 360.213041-207.795531a53.535499 53.535499 0 0 1 71.346545 15.968524zM492.24407 0a329.606705 329.606705 0 1 1 0 659.213409 329.606705 329.606705 0 0 1 0-659.213409z m0 107.17336a222.535707 222.535707 0 1 0 0 444.969052 222.535707 222.535707 0 0 0 0-444.969052z" fill="#FFFFFF" p-id="2239"></path>
+                    </g>
+                </svg>
             </td>
-            <td style="position: relative; " onclick="showDetails(this)"><span style="position: absolute; cursor: pointer; top: 0; right: 0; width: 0; height: 0;  border-left: 10px solid transparent; border-top: 10px solid red;"></span>👤 昵称 哲哲</td>
+            <td style="position: relative; padding:0 1em 0 0;" onclick="showDetails(this)"><span style="position: absolute; cursor: pointer; top: 0; right: 0; width: 0; height: 0;  border-left: 10px solid transparent; border-top: 10px solid red;"></span>👤 昵称 哲哲</td>
             <td style="position: relative;" onclick="showDetails(this)">
                 <button style="width:10px; height:10px;position: absolute;top: 0;right: 0; cursor: pointer;">-</button>
                 艾克斯
             </td>
-            <td style="position: relative;" class="icon_check_father">
+            <td style="position: relative;">
+                <svg t="1730718794814" class="icon_check" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="9758">
+                    <path d="M0 512C0 229.234759 229.234759 0 512 0s512 229.234759 512 512-229.234759 512-512 512S0 794.765241 0 512z m419.310345 194.630621a35.310345 35.310345 0 0 0 49.399172 1.271172l335.518897-311.931586a35.310345 35.310345 0 0 0-48.075035-51.729655l-309.124413 289.544827-145.125518-149.645241a35.310345 35.310345 0 1 0-50.688 49.169655l168.112552 173.320828z" fill="#00D26A" p-id="9759"></path>
+                </svg>
             </td>
             <td>径出</td>
             <td>形出</td>
@@ -322,20 +317,33 @@
             <td>——</td>
         </tr>
         <tr style="white-space: nowrap;">
-            <td style="position: relative; width:2em;height: 2em;">
+            <td style="position: relative;">
                 <img src="./素材/超梦.webp" class="poke_dream">
             </td>
-            <td>究极奈克洛兹玛</td>
-            <td style="position: relative;" class="icon_check_father">
+            <td>奈克洛兹玛</td>
+            <td style="position: relative;">
+                <img src="./素材/超梦.webp" class="poke_dream">
             </td>
-            <td style="position: relative;" class="icon_N_father">
+            <td>拂晓之翼<br/>究极爆发</td>
+            <td style="position: relative;">
             </td>
-            <td style="position: relative; " onclick="showDetails(this)"><span style="position: absolute; cursor: pointer; top: 0; right: 0; width: 0; height: 0;  border-left: 10px solid transparent; border-top: 10px solid red;"></span>👤 昵称 哲哲</td>
+            <td style="position: relative;">
+                <svg t="1730717986002" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2238">
+                    <path d="M512 512m-512 0a512 512 0 1 0 1024 0 512 512 0 1 0-1024 0Z" fill="#909399" p-id="1913"></path>
+                    <g transform="translate(170, 120) scale(0.7)"><!-- 缩小 -->
+                        <path d="M923.496569 583.465285a53.535499 53.535499 0 0 1-11.055131 72.267805l-6.653552 4.503943-306.57518 176.882107 150.063176 86.700894a53.535499 53.535499 0 0 1-46.472498 96.220591l-7.165363-3.582682-203.598675-117.511955L288.543032 1016.457943a53.535499 53.535499 0 0 1-60.086688-88.236329l6.551189-4.40158 149.960815-86.700894L78.49553 660.237033a53.535499 53.535499 0 0 1 46.472498-96.220591l7.063001 3.377957 360.008317 207.897893 360.213041-207.795531a53.535499 53.535499 0 0 1 71.346545 15.968524zM492.24407 0a329.606705 329.606705 0 1 1 0 659.213409 329.606705 329.606705 0 0 1 0-659.213409z m0 107.17336a222.535707 222.535707 0 1 0 0 444.969052 222.535707 222.535707 0 0 0 0-444.969052z" fill="#FFFFFF" p-id="2239"></path>
+                    </g>
+                </svg>
+            </td>
+            <td style="position: relative; padding:0 1em 0 0;" onclick="showDetails(this)"><span style="position: absolute; cursor: pointer; top: 0; right: 0; width: 0; height: 0;  border-left: 10px solid transparent; border-top: 10px solid red;"></span>👤 昵称 哲哲</td>
             <td style="position: relative;" onclick="showDetails(this)">
                 <button style="width:10px; height:10px;position: absolute;top: 0;right: 0; cursor: pointer;">-</button>
                 艾克斯
             </td>
-            <td style="position: relative;" class="icon_check_father">
+            <td style="position: relative;">
+                <svg t="1730718794814" class="icon_check" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="9758">
+                    <path d="M0 512C0 229.234759 229.234759 0 512 0s512 229.234759 512 512-229.234759 512-512 512S0 794.765241 0 512z m419.310345 194.630621a35.310345 35.310345 0 0 0 49.399172 1.271172l335.518897-311.931586a35.310345 35.310345 0 0 0-48.075035-51.729655l-309.124413 289.544827-145.125518-149.645241a35.310345 35.310345 0 1 0-50.688 49.169655l168.112552 173.320828z" fill="#00D26A" p-id="9759"></path>
+                </svg>
             </td>
             <td>径出</td>
             <td>形出</td>
@@ -343,21 +351,36 @@
             <td>新收养</td>
         </tr>
         <tr style="white-space: nowrap;">
-            <td style="position: relative; width:2em;height: 2em;" colspan="2">
+            <td style="position: relative;">
                 <img src="./素材/超梦.webp" class="poke_dream">
             </td>
             <td>哲尔尼亚斯</td>
-            <td>树木的样子</td>
-            <td style="position: relative;" class="icon_check_father">
+            <td style="position: relative;">
+                <img src="./素材/超梦.webp" class="poke_dream">
             </td>
-            <td style="position: relative;" class="icon_N_father">
+            <td>活跃模式<br/>树木的样子</td>
+            <td style="position: relative;">
+                <svg t="1730718794814" class="icon_check" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="9758">
+                    <path d="M0 512C0 229.234759 229.234759 0 512 0s512 229.234759 512 512-229.234759 512-512 512S0 794.765241 0 512z m419.310345 194.630621a35.310345 35.310345 0 0 0 49.399172 1.271172l335.518897-311.931586a35.310345 35.310345 0 0 0-48.075035-51.729655l-309.124413 289.544827-145.125518-149.645241a35.310345 35.310345 0 1 0-50.688 49.169655l168.112552 173.320828z" fill="#00D26A" p-id="9759"></path>
+                </svg>
             </td>
-            <td style="position: relative; " onclick="showDetails(this)"><span style="position: absolute; cursor: pointer; top: 0; right: 0; width: 0; height: 0;  border-left: 10px solid transparent; border-top: 10px solid red;"></span>👤 昵称 哲哲</td>
+            <td style="position: relative;">
+                <svg t="1730717986002" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2238">
+                    <path d="M512 512m-512 0a512 512 0 1 0 1024 0 512 512 0 1 0-1024 0Z" fill="#909399" p-id="1913"></path>
+                    <g transform="translate(170, 120) scale(0.7)"><!-- 缩小 -->
+                        <path d="M923.496569 583.465285a53.535499 53.535499 0 0 1-11.055131 72.267805l-6.653552 4.503943-306.57518 176.882107 150.063176 86.700894a53.535499 53.535499 0 0 1-46.472498 96.220591l-7.165363-3.582682-203.598675-117.511955L288.543032 1016.457943a53.535499 53.535499 0 0 1-60.086688-88.236329l6.551189-4.40158 149.960815-86.700894L78.49553 660.237033a53.535499 53.535499 0 0 1 46.472498-96.220591l7.063001 3.377957 360.008317 207.897893 360.213041-207.795531a53.535499 53.535499 0 0 1 71.346545 15.968524zM492.24407 0a329.606705 329.606705 0 1 1 0 659.213409 329.606705 329.606705 0 0 1 0-659.213409z m0 107.17336a222.535707 222.535707 0 1 0 0 444.969052 222.535707 222.535707 0 0 0 0-444.969052z" fill="#FFFFFF" p-id="2239"></path>
+                    </g>
+                </svg>
+            </td>
+            <td style="position: relative; padding:0 1em 0 0;" onclick="showDetails(this)"><span style="position: absolute; cursor: pointer; top: 0; right: 0; width: 0; height: 0;  border-left: 10px solid transparent; border-top: 10px solid red;"></span>👤 昵称 哲哲</td>
             <td style="position: relative; " onclick="showDetails(this)">
                 <button style="width:10px; height:10px;position: absolute;top: 0;right: 0; cursor: pointer;">-</button>
                 艾克斯
             </td>
-            <td style="position: relative;" class="icon_check_father">
+            <td style="position: relative;">
+                <svg t="1730718794814" class="icon_check" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="9758">
+                    <path d="M0 512C0 229.234759 229.234759 0 512 0s512 229.234759 512 512-229.234759 512-512 512S0 794.765241 0 512z m419.310345 194.630621a35.310345 35.310345 0 0 0 49.399172 1.271172l335.518897-311.931586a35.310345 35.310345 0 0 0-48.075035-51.729655l-309.124413 289.544827-145.125518-149.645241a35.310345 35.310345 0 1 0-50.688 49.169655l168.112552 173.320828z" fill="#00D26A" p-id="9759"></path>
+                </svg>
             </td>
             <td>径出</td>
             <td>形出</td>
@@ -365,21 +388,36 @@
             <td>新收服</td>
         </tr>
         <tr style="white-space: nowrap;">
-            <td style="position: relative; width:2em;height: 2em;" colspan="2">
+            <td style="position: relative;">
                 <img src="./素材/超梦.webp" class="poke_dream">
             </td>
             <td>伊裴尔塔尔</td>
+            <td style="position: relative;">
+                <img src="./素材/超梦.webp" class="poke_dream">
+            </td>
             <td>茧的样子</td>
-            <td style="position: relative;" class="icon_check_father">
+            <td style="position: relative;">
+                <svg t="1730718794814" class="icon_check" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="9758">
+                    <path d="M0 512C0 229.234759 229.234759 0 512 0s512 229.234759 512 512-229.234759 512-512 512S0 794.765241 0 512z m419.310345 194.630621a35.310345 35.310345 0 0 0 49.399172 1.271172l335.518897-311.931586a35.310345 35.310345 0 0 0-48.075035-51.729655l-309.124413 289.544827-145.125518-149.645241a35.310345 35.310345 0 1 0-50.688 49.169655l168.112552 173.320828z" fill="#00D26A" p-id="9759"></path>
+                </svg>
             </td>
-            <td style="position: relative;" class="icon_N_father">
+            <td style="position: relative;">
+                <svg t="1730717986002" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2238">
+                    <path d="M512 512m-512 0a512 512 0 1 0 1024 0 512 512 0 1 0-1024 0Z" fill="#909399" p-id="1913"></path>
+                    <g transform="translate(170, 120) scale(0.7)"><!-- 缩小 -->
+                        <path d="M923.496569 583.465285a53.535499 53.535499 0 0 1-11.055131 72.267805l-6.653552 4.503943-306.57518 176.882107 150.063176 86.700894a53.535499 53.535499 0 0 1-46.472498 96.220591l-7.165363-3.582682-203.598675-117.511955L288.543032 1016.457943a53.535499 53.535499 0 0 1-60.086688-88.236329l6.551189-4.40158 149.960815-86.700894L78.49553 660.237033a53.535499 53.535499 0 0 1 46.472498-96.220591l7.063001 3.377957 360.008317 207.897893 360.213041-207.795531a53.535499 53.535499 0 0 1 71.346545 15.968524zM492.24407 0a329.606705 329.606705 0 1 1 0 659.213409 329.606705 329.606705 0 0 1 0-659.213409z m0 107.17336a222.535707 222.535707 0 1 0 0 444.969052 222.535707 222.535707 0 0 0 0-444.969052z" fill="#FFFFFF" p-id="2239"></path>
+                    </g>
+                </svg>
             </td>
-            <td style="position: relative; " onclick="showDetails(this)"><span style="position: absolute; cursor: pointer; top: 0; right: 0; width: 0; height: 0;  border-left: 10px solid transparent; border-top: 10px solid red;"></span>👤 昵称 哲哲</td>
+            <td style="position: relative; padding:0 1em 0 0;" onclick="showDetails(this)"><span style="position: absolute; cursor: pointer; top: 0; right: 0; width: 0; height: 0;  border-left: 10px solid transparent; border-top: 10px solid red;"></span>👤 昵称 哲哲</td>
             <td style="position: relative;" onclick="showDetails(this)">
                 <button style="width:10px; height:10px;position: absolute;top: 0;right: 0; cursor: pointer;">-</button>
                 艾克斯
             </td>
-            <td style="position: relative;" class="icon_check_father">
+            <td style="position: relative;">
+                <svg t="1730718794814" class="icon_check" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="9758">
+                    <path d="M0 512C0 229.234759 229.234759 0 512 0s512 229.234759 512 512-229.234759 512-512 512S0 794.765241 0 512z m419.310345 194.630621a35.310345 35.310345 0 0 0 49.399172 1.271172l335.518897-311.931586a35.310345 35.310345 0 0 0-48.075035-51.729655l-309.124413 289.544827-145.125518-149.645241a35.310345 35.310345 0 1 0-50.688 49.169655l168.112552 173.320828z" fill="#00D26A" p-id="9759"></path>
+                </svg>
             </td>
             <td>径出</td>
             <td>形出</td>
@@ -388,26 +426,7 @@
         </tr>
       </table>
 
-      <div style="width:50vw;margin: 0 auto;">
-        <ul style="border: 1px solid black; border-radius: 3vw; padding: 1vw; display: flex;justify-content: center;gap: 1vw;">
-            <li>
-                <img src="./素材/超梦.webp" style="width:2em; border: 1px solid black; border-radius: 50%;">
-                <span style="display: none;">超梦</span>
-            </li>
-            <li>
-                <img src="./素材/超梦.webp" style="width:2em; border: 1px solid black; border-radius: 50%;">
-                <span style="display: none;">奈克洛兹玛</span>
-            </li>
-            <li>
-                <img src="./素材/超梦.webp" style="width:2em; border: 1px solid black; border-radius: 50%;">
-                <span style="display: none;">哲尔尼亚斯</span>
-            </li>
-            <li>
-                <img src="./素材/超梦.webp" style="width:2em; border: 1px solid black; border-radius: 50%;">
-                <span style="display: none;">伊裴尔塔尔</span>
-            </li>
-        </ul>
-      </div>
+
 
       <div>
         <ul class="container"><!-- ul0 -->

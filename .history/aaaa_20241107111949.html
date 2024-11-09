@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        /* 根据视窗宽度调整每行的占据可用空间 */
+        @media (max-width: 9999999999999999px) {
+            .card-container {
+                grid-template-columns: repeat(5, 1fr);
+            }
+        }
+        @media (max-width: 1920px) {
+            .card-container {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+        @media (max-width: 1440px) {
+            .card-container {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+        @media (max-width: 960px) {
+            .card-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        @media (max-width: 480px) {
+            .card-container {
+                grid-template-columns: repeat(1, 1fr);
+            }
+        }
+        .card-container {
+            width: inherit;
+            display: grid;
+            grid-template-rows: auto;
+            gap: 10px;
+            padding: 10px;
+            border: 1px solid black;
+            overflow-y: auto;
+            }
+        .card-gropup {
+            font-size: 16px;
+            border-radius: 14px;
+            border: 1px solid black;
+            cursor: pointer;
+            padding: 20px;
+            &:hover {
+                transform: scale(1.05);
+            }
+        }
+    </style>
+    <h2 style="border-bottom: 1px solid #a2a9b1;"><span title="原名：二名视图" style="border-bottom: 1px dotted black;">卡片视图</span></h2>
+    <div class="card-container">
+        <div class="card-gropup">
+            <div style="display: flex;">
+                <div style="width: 45%; height: 100%;">
+                    <img src="https://media.52poke.com/wiki/e/ec/%E8%B5%A4%E7%BA%A2_OD_GSC.png" style="margin: 50px;"></div>
+                <div style="display: flex; justify-content: center; align-items: center; width: 50%;">
+                    <table style="margin-top: 5px; margin-bottom: 10px;"><tbody><tr><th></th></tr><tr><td>首次</td><td>✅</td></tr><tr><td>形式</td><td>径出</td></tr><tr><td>表现</td><td>剪影</td></tr></tbody></table></div>
+                </div>
+        </div>
+        <div class="card-gropup">
+            <div class="card__img">
+                <div style="border: 1px solid black;">
+                  <img src="https://media.52poke.com/wiki/e/ec/%E8%B5%A4%E7%BA%A2_OD_GSC.png" alt="" width="100px" height="100px">
+                </div>
+                <div style="position: relative; bottom: 11%; height: 0px; float: right; padding: 0 25% 0 0 ">✅</div>
+                <div class="[ card__text ] [ flow ]">
+                    <h2>
+                        玛琪艾儿
+                    </h2>
+                    <div class="meta">
+                      <p class="meta__info">
+                        <span class="visually-hidden">This Podcast has</span>
+                        <span class="meta__posts">
+                          7.2<abbr title="Thousand">k</abbr> Posts
+                        </span>
+                        <span class="visually-hidden">And</span>
+                        <span class="meta__creators">
+                          5.8<abbr title="Thousand">k</abbr> Creators
+                        </span>
+                      </p>
+                    </div>
+                    <p>The investigation can distinguish the areas in need of reconstruction</p>
+                    <small>
+                      <span class="visuallyhidden">Uploaded</span>
+                      1 year ago
+                    </small>
+                  </div>
+              </div>
+        </div>
+        <div class="card-gropup">3</div>
+        <div class="card-gropup">4</div>
+        <div class="card-gropup">5</div>
+        <div class="card-gropup">6</div>
+        <div class="card-gropup">7</div>
+    </div>
+
+
+
+</body>
+</html>

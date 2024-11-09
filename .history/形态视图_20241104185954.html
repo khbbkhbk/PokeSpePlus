@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cell Division Diagram</title>
+    <style>
+        canvas {
+            border: 1px solid black;
+        }
+        td{
+            border: 1px solid rgb(143, 143, 143);
+        }
+
+        ul {
+            list-style-type: none;
+            display: flex;
+            padding: 0px;
+        }
+        li{
+            padding: 0px;
+        }
+        .bordernormal{
+            border: 1px solid black;
+            border-radius: 50%;
+        }
+        .bordershiny {
+            border: 1px solid #E86C22;
+            border-radius: 50%;
+            animation: bordershiny 2s infinite linear;
+        }
+
+        @keyframes borderShiny {
+            0% {
+                border-color: #E86C22;
+            }
+            25% {
+                border-color: #FF0000;
+            }
+            50% {
+                border-color: #00FF00;
+            }
+            75% {
+                border-color: #0000FF;
+            }
+            100% {
+                border-color: #E86C22;
+            }
+        }
+        /* 圆中图片 */
+        .imgincircle{
+            object-fit: fill;
+            width:10vw;
+            height:10vw;
+            position: relative;
+            left:50%;top:50%;
+            transform:translateX(-50%) translateY(-50%);
+        }
+        /* 圆中图片的容器 */
+        .imgincircle-container{
+            object-fit: fill;
+            position: relative;
+            top: 5%;
+            width: 100%;
+            height: 100%;
+        }
+        /* 女性图标 */
+        .F-sexicon{
+            position: absolute;
+            top:85%;
+            right: 15%;
+            transform: translate(50%, -50%);
+            background-color: #F70A8D;
+            width:2vw;
+            height:2vw;
+            border: 1px solid #F70A8D;
+            border-radius: 50%;
+            padding: 3%;
+        }
+        /* 男性图标 */
+        .M-sexicon{
+            position: absolute;
+            top:85%;
+            right: 15%;
+            transform: translate(50%, -50%);
+            background-color: #00A7EE;
+            width:2vw;
+            height:2vw;
+            border: 1px solid #00A7EE;
+            border-radius: 50%;
+            padding: 3%;
+        }
+        /* 特殊道具图标 */
+        .itemicon-special{
+            object-fit: fill;
+            width:3vw;
+            height:3vw;
+        }
+        /* 特殊道具图标的容器 */
+        .itemicon-special-container{
+            position: absolute;
+            top:10%;
+            right: 50%;
+            transform: translate(50%, -50%);
+        }
+        /* 单元的容器 */
+        .unit-container{
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            width: 15vw;
+            height: 15vw;
+        }
+        /* 单元的容器 */
+        .imgunit-caption{
+            margin-top: 0.5vh;
+            width: 100%;
+            text-align: center;
+            font-size: 2vw;
+        }
+        /* 单元的容器 */
+        .unitgroup-container{
+            display: flex;
+            gap: 1vw;
+        }
+        /* 容器 */
+        .container{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            row-gap: 2vw;
+            border: 1px solid black;
+            border-radius: 3vw;
+            padding: 3vw;
+        }
+
+
+        .icon {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width:1.5em;
+            transform: translate(-50%, -50%);
+        }
+
+    </style>
+</head>
+<body>
+    <table cellpadding="10" cellspacing="0" style="text-align: center; margin:0 auto;border: 1px solid black; margin-bottom:10px;margin-top:10px">
+        <tr style="white-space: nowrap;">
+            <td>宝可梦</td>
+            <td>形态</td>
+            <td>异色</td>
+            <td>性别</td>
+            <td>异称</td>
+            <td>归属</td>
+            <td>登场锚点</td>
+            <td>登场方式</td>
+            <td>登场表现</td>
+            <td>——</td>
+        </tr>
+        <tr style="white-space: nowrap;">
+            <td>超梦</td>
+            <td>超级进化</td>
+            <td>✅</td>
+            <td style="position: relative;">
+                <svg t="1730716487085" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5742"><path d="M512 512m-512 0a512 512 0 1 0 1024 0 512 512 0 1 0-1024 0Z" fill="#4F90F8" p-id="5743"></path><path d="M457.408 391.68c-99.2 0-179.648 79.616-179.648 177.536s80.576 177.536 179.648 177.536c99.008 0 179.712-79.68 179.712-177.536-0.064-97.92-80.64-177.536-179.712-177.536z m373.312 45.056h-85.12v-95.36l-74.624 73.856c33.152 44.48 51.136 98.432 51.2 153.92 0 144.256-118.784 261.568-264.768 261.568-145.984 0-264.768-117.312-264.768-261.568 0-144.192 118.784-261.568 264.768-261.568 57.088 0 109.76 18.112 152.96 48.512l80.512-79.488H582.592V192.576h248.128v244.16z" fill="#FFFFFF" p-id="5744"></path></svg>
+            </td>
+            <td style="position: relative; padding:0 1em 0 0;" onclick="showDetails(this)"><span style="position: absolute; cursor: pointer; top: 0; right: 0; width: 0; height: 0;  border-left: 10px solid transparent; border-top: 10px solid red;"></span>👤 昵称 哲哲</td>
+            <td style="position: relative; padding:0 1em 0 0;" onclick="showDetails(this)"><button style="width:10px; height:10px;position: absolute;top: 0;right: 0; cursor: pointer;">-</button>艾克斯</td>
+            <td>✅</td>
+            <td>径出</td>
+            <td>形出</td>
+            <td>——</td>
+        </tr>
+        <tr style="white-space: nowrap;">
+            <td>...</td>
+            <td>超极巨化</td>
+            <td></td>
+            <td style="position: relative;">
+                <svg t="1730717079128" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1912"><path d="M512 512m-512 0a512 512 0 1 0 1024 0 512 512 0 1 0-1024 0Z" fill="#FF6582" p-id="1913"></path><path d="M601.6 207.616a228.608 228.608 0 0 0-195.712 346.432l-65.6 54.784L253.632 506.24l-56.128 47.36 86.4 102.4L192.64 732.16l47.104 56.448 91.52-76.48 86.528 102.4 56.192-47.36-86.272-102.208 65.728-54.912a226.56 226.56 0 0 0 148.16 54.592c61.376 0 118.976-23.68 162.176-66.752a227.2 227.2 0 0 0 67.072-162.048A229.056 229.056 0 0 0 601.6 207.616z m0 383.552a155.008 155.008 0 1 1 0-310.08 155.456 155.456 0 0 1 155.712 154.88A155.648 155.648 0 0 1 601.6 591.104z" fill="#FFFFFF" p-id="1914"></path></svg>
+            </td>
+            <td>代号 个体一</td>
+            <td>训练家学校</td>
+            <td>✅</td>
+            <td>回忆</td>
+            <td>剪影</td>
+            <td>——</td>
+        </tr>
+        <tr style="white-space: nowrap;">
+            <td>超梦</td>
+            <td>超级进化</td>
+            <td>✅</td>
+            <td style="position: relative;">
+                <svg t="1730717986002" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2238" width="200" height="200"><path d="M923.496569 583.465285a53.535499 53.535499 0 0 1-11.055131 72.267805l-6.653552 4.503943-306.57518 176.882107 150.063176 86.700894a53.535499 53.535499 0 0 1-46.472498 96.220591l-7.165363-3.582682-203.598675-117.511955L288.543032 1016.457943a53.535499 53.535499 0 0 1-60.086688-88.236329l6.551189-4.40158 149.960815-86.700894L78.49553 660.237033a53.535499 53.535499 0 0 1 46.472498-96.220591l7.063001 3.377957 360.008317 207.897893 360.213041-207.795531a53.535499 53.535499 0 0 1 71.346545 15.968524zM492.24407 0a329.606705 329.606705 0 1 1 0 659.213409 329.606705 329.606705 0 0 1 0-659.213409z m0 107.17336a222.535707 222.535707 0 1 0 0 444.969052 222.535707 222.535707 0 0 0 0-444.969052z" fill="#909399" p-id="2239"></path></svg>
+            </td>
+            <td style="position: relative; padding:0 1em 0 0;" onclick="showDetails(this)"><span style="position: absolute; cursor: pointer; top: 0; right: 0; width: 0; height: 0;  border-left: 10px solid transparent; border-top: 10px solid red;"></span>👤 昵称 哲哲</td>
+            <td style="position: relative; padding:0 1em 0 0;" onclick="showDetails(this)"><button style="width:10px; height:10px;position: absolute;top: 0;right: 0; cursor: pointer;">-</button>艾克斯</td>
+            <td>✅</td>
+            <td>径出</td>
+            <td>形出</td>
+            <td>——</td>
+        </tr>
+      </table>
+
+
+
+      <div>
+        <ul class="container"><!-- ul0 -->
+            <li><!-- li0 -->
+                <ul class="unitgroup-container"><!-- ul1 -->
+                    <li><!-- li1 -->
+                        <ul class="bordernormal unit-container"><!-- ul21 -->
+                            <li class="itemicon-special-container"><!-- li21 -->
+                                <img src="./素材/巨钳螳螂进化石 - 副本.png" class="itemicon-special"></li>
+                            <li class="imgincircle-container"><!-- li22 -->
+                                <img src="https://media.52poke.com/wiki/3/32/123Scyther_Dream.png" class="imgincircle"></li>
+                            <img src="./素材/♂male sign(120 x 120).png" class="M-sexicon">
+                        </ul>
+                        <ul><!-- ul22 -->
+                            <li class="imgunit-caption">飞天螳螂</li><!-- ul23 -->
+                        </ul>
+                    </li>
+                    <li><!-- li2 -->
+                        <ul style="position: relative;width: 5vw; height: 15vw;">
+                            <li style="width:100%;height: 100%;display: flex; position: relative;">
+                                <svg t="1730617590882" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="18456"><path d="M1023.78 642.49H109V594h914.79z" fill="black" p-id="18457"></path><path d="M135.46 690.84L0.22 618.23l135.24-72.61zM0.22 381.51H915V430H0.22z" fill="black" p-id="18458"></path><path d="M888.54 333.16l135.24 72.61-135.24 72.61z" fill="black" p-id="18459"></path></svg>
+                                <span style="position: absolute; top:30%;left:50%;transform: translate(-50%,-50%);font-size: 2vw; white-space: nowrap;">进化</span>
+                                <span style="position: absolute; top:70%;left:50%;transform: translate(-50%,-50%);font-size: 2vw; white-space: nowrap;">寄换</span>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <ul class="bordershiny unit-container">
+                            <li class="itemicon-special-container">
+                                <img src="./素材/巨钳螳螂进化石 - 副本.png" class="itemicon-special"></li>
+                            <li class="imgincircle-container">
+                                <img src="./素材/巨钳螳螂 - 副本.png" class="imgincircle"></li>
+                            <img src="./素材/♀female sign(120 x 120).png" class="F-sexicon">
+                        </ul>
+                        <ul>
+                            <li class="imgunit-caption">巨钳螳螂</li>
+                        </ul>
+                    </li>
+                    <li >
+                        <ul style="position: relative;width: 5vw; height: 15vw;">
+                            <li style="width:100%;height: 100%;display: flex; position: relative;">
+                                <svg t="1730614927046" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="7364" fill="black"><path d="M 18.204 494.364 l 917.049 0 l 0 35.2711 l -917.049 0 l 0 -35.2711 Z" p-id="7365"></path><path d="M 829.44 459.094 L 1005.79 512 L 829.44 564.906 Z" p-id="7366" fill="black"></path></svg>
+                                <span style="position: absolute; top:30%;left:50%;transform: translate(-50%,-50%);font-size: 2vw; white-space: nowrap;">进化</span>
+                                <span style="position: absolute; top:70%;left:50%;transform: translate(-50%,-50%);font-size: 2vw; white-space: nowrap;">寄换</span>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <ul class="bordernormal unit-container">
+                            <li class="itemicon-special-container">
+                                <img src="./素材/巨钳螳螂进化石 - 副本.png" class="itemicon-special"></li>
+                            <li class="imgincircle-container">
+                                <img src="./素材/超级巨钳螳螂 - 副本.png" class="imgincircle"></li>
+                            <img src="./素材/♂male sign(120 x 120).png" class="M-sexicon">
+                        </ul>
+                        <ul>
+                            <li class="imgunit-caption">超级巨钳螳螂</li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <ul class="unitgroup-container">
+                    <li>
+                        <ul class="bordernormal unit-container">
+                            <li class="itemicon-special-container">
+                                <img src="./素材/巨钳螳螂进化石 - 副本.png" class="itemicon-special"></li>
+                            <li class="imgincircle-container">
+                                <img src="./素材/超级巨钳螳螂 - 副本.png" class="imgincircle"></li>
+                            <img src="./素材/♀female sign(120 x 120).png" class="F-sexicon">
+                        </ul>
+                        <ul>
+                            <li class="imgunit-caption">超级巨钳螳螂</li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+      </div>
+      <div id="Form-view"></div>
+
+    <script>
+        const data=[{unit1:
+                            {
+                                caption:"飞天螳螂",
+                                img_src:"https://media.52poke.com/wiki/3/32/123Scyther_Dream.png",
+                                sex:"雄性",
+                                item:"./素材/巨钳螳螂进化石 - 副本.png",
+                                shiny:"false"
+
+                            },
+                     unit2:
+                            {
+                                caption:"巨钳螳螂",
+                                img_src:"./素材/巨钳螳螂 - 副本.png",
+                                sex:"雌性",
+                                item:"./素材/巨钳螳螂进化石 - 副本.png",
+                                shiny:"true"
+                            },
+                     unit3:
+                            {
+                                caption:"超级巨钳螳螂",
+                                img_src:"./素材/超级巨钳螳螂 - 副本.png",
+                                sex:"雄性",
+                                item:"./素材/巨钳螳螂进化石 - 副本.png",
+                                shiny:"false"
+                            }
+                    },
+                    {unit1:
+                            {
+                                caption:"超级巨钳螳螂",
+                                img_src:"./素材/超级巨钳螳螂 - 副本.png",
+                                sex:"雌性",
+                                item:"./素材/巨钳螳螂进化石 - 副本.png",
+                                shiny:"false"
+                            }
+                    }]
+        const FormView = document.getElementById('Form-view');
+        const ul0 = document.createElement('ul');
+        ul0.className = 'container';
+        // 遍历data对象的所有unitgroup对象
+        for(const unitgroup of data) {
+            const li0 = document.createElement('li');
+            // 遍历unitgroup对象{unit1:{name:"1111"}, unit2:{name:"1112"}
+            // 中所有单元的键unit1、unit2、...
+            // 并存储在变量key
+            const ul1 = document.createElement('ul');
+            ul1.className = 'unitgroup-container';
+            for(const key in unitgroup) {
+                console.log(key, unitgroup[key]["caption"]);
+
+                const li1 = document.createElement('li');
+                    const ul21 = document.createElement('ul');
+                    ul21.className = "unit-container";
+                    if (unitgroup[key]["shiny"] == "true") {
+                        ul21.classList.add("bordershiny");
+                    }else{
+                        ul21.classList.add("bordernormal");
+                    }
+                        const li21 = document.createElement('li');
+                        li21.className = "itemicon-special-container";
+                            // 创建并配置img元素
+                            const img_item = document.createElement('img');
+                            img_item.className="itemicon-special"
+                            img_item.src = unitgroup[key]["item"];
+                            img_item.alt = `${unitgroup[key]["item"]} 图片失效`;
+                        li21.appendChild(img_item);
+
+                        const li22 = document.createElement('li');
+                        li22.className = "imgincircle-container";
+                            // 创建并配置img元素
+                            const img_unit = document.createElement('img');
+                            img_unit.className="imgincircle"
+                            img_unit.src = unitgroup[key]["img_src"];
+                            img_unit.alt = `${unitgroup[key]["img_src"]} 图片失效`;
+                            console.log(`${unitgroup[key]["img_src"]} 图片失效`);
+                        li22.appendChild(img_unit);
+
+                        const img_sex = document.createElement('img');
+                        if (unitgroup[key]["sex"] == "雄性") {
+                            img_sex.className = "M-sexicon";
+                            img_sex.src = "./素材/♂male sign(120 x 120).png";
+                            img_sex.alt = `${unitgroup[key]["sex"]} 图片失效`;
+                        }else if (unitgroup[key]["sex"] == "雌性") {
+                            img_sex.className = "F-sexicon";
+                            img_sex.src = "./素材/♀female sign(120 x 120).png";
+                            img_sex.alt = `${unitgroup[key]["sex"]} 图片失效`;
+                        }else{
+                            img_sex.className = "N-sexicon";
+                            img_sex.src = "None";
+                            img_sex.alt = `${unitgroup[key]["sex"]} 图片失效`;
+                        }
+                    ul21.appendChild(li21);
+                    ul21.appendChild(li22);
+                    ul21.appendChild(img_sex);
+
+                    const ul22 = document.createElement('ul');
+                        const li23 = document.createElement('li');
+                        li23.className = "imgunit-caption";
+                        li23.textContent = unitgroup[key]["caption"];
+                    ul22.appendChild(li23);
+
+                li1.appendChild(ul21);
+                li1.appendChild(ul22);
+                ul1.appendChild(li1);
+
+                li0.appendChild(ul1);
+            ul0.appendChild(li0);
+            }
+        FormView.appendChild(ul0);
+        }
+    </script>
+
+      <div>
+
+        </div>
+        <div>
+        <svg id="svgelem" height="200">
+            <circle id="pinkcircle" cx="50" cy="50" r="50" fill="pink">
+        </svg>
+    </div>
+
+    <canvas id="cellDivisionCanvas" width="1000" height="1200">
+</canvas>
+
+    <script>
+
+
+
+window.onload = function() {
+    const canvas = document.getElementById('cellDivisionCanvas');
+    const ctx = canvas.getContext('2d');
+
+    const centerX1 = 150;
+    const centerY1 = 100;
+    const radius1 = 50;
+
+    const centerX2 = 550;
+    const centerY2 = 100;
+    const radius2 = 50;
+
+    // 获取canvas的中心点坐标
+    const centerX = canvas.width / 2;
+    const centerY = canvas.height / 2;
+
+    // 绘制圆形
+    function drawCell(x, y, radius, color = '#FFFFFF') {
+        ctx.beginPath();
+        ctx.arc(x, y, radius, 0, Math.PI * 2, true);
+        ctx.fillStyle = color;
+        ctx.fill();
+        ctx.strokeStyle = '#000000';
+        ctx.stroke();
+    }
+
+    // 加载本地图片
+    var img = new Image();
+    img.src = './素材/巨钳螳螂 - 副本.png';
+    // 加载完毕后开始绘制
+    img.onload = function() {
+        drawCell(centerX, centerY, img.width / 2);
+        ctx.drawImage(img, centerX - img.width * 3 / 8, centerY - img.height * 3 / 8, img.width * 3 / 4, img.height * 3 / 4);
+        var img2 = new Image();
+        img2.src = './素材/巨钳螳螂进化石 - 副本.png';
+        img2.onload = function() {
+            ctx.drawImage(img2, centerX - img2.width*0.175, centerY - img.width / 2, img2.width*0.35, img2.height*0.35);
+        }
+        drawCell(centerX + img.width / 2 * Math.cos(Math.PI / 4), centerY + img.width / 2 * Math.sin(Math.PI / 4), 20, "#00A6ED");
+
+        var img3 = new Image();
+        img3.src = './素材/♂male sign(120 x 120).png';
+        img3.onload = function() {
+            ctx.drawImage(img3, centerX + img.width / 2 * Math.cos(Math.PI / 4)-img2.width*0.125, centerY + img.width / 2 * Math.sin(Math.PI / 4)-img2.width*0.125, img2.width*0.25, img2.height*0.25);
+         }
+        }
+
+
+    // Draw arrows
+    function drawArrow(fromX, fromY, toX, toY) {
+        ctx.beginPath();
+        ctx.moveTo(fromX, fromY);
+        ctx.lineTo(toX, toY);
+        ctx.strokeStyle = '#000000';
+        ctx.lineWidth = 2;
+        ctx.stroke();
+
+        // Arrowhead
+        ctx.beginPath();
+        const headlen = 10; // length of head in pixels
+        const angle = Math.atan2(toY - fromY, toX - fromX);
+        ctx.moveTo(toX, toY);
+        ctx.lineTo(toX - headlen * Math.cos(angle - Math.PI / 6), toY - headlen * Math.sin(angle - Math.PI / 6));
+        ctx.moveTo(toX, toY);
+        ctx.lineTo(toX - headlen * Math.cos(angle + Math.PI / 6), toY - headlen * Math.sin(angle + Math.PI / 6));
+        ctx.strokeStyle = '#000000';
+        ctx.lineWidth = 2;
+        ctx.lineJoin = 'round'; // round off arrowhead
+        ctx.stroke();
+    }
+
+    // Draw the first cell
+    drawCell(centerX1, centerY1, radius1);
+    // Draw the second cell and the arrow between the first and second cells
+    drawCell(centerX2, centerY2, radius2);
+    drawArrow(centerX1 + radius1, centerY1, centerX2 - radius2, centerY2);
+  }
+
+    </script>
+
+
+
+</body>
+</html>

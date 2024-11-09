@@ -354,7 +354,146 @@
                 <button id="toggleBtn">&lt;</button>
                 <button id="toggleBtn">&gt;</button>
             </div>
+            <script>
+                document.addEventListener('DOMContentLoaded', function() {
+                fetch('roles_cards.json')       // http://localhost:8080/
+                    .then(response => response.json())
+                    .then(data => {
+                        const container = document.querySelector('.business-card-container');
 
+                        container.style.display = 'flex';
+                        container.style.flexDirection = 'row';
+
+                        // 初始化当前组的容器和当前组内卡片的索引.
+                        // 不能放在下面的data.forEach(group => {...}) 的内部，那样意味着它们每次迭代到新的组时都会被重新初始化。这导致 currentGroup 总是指向最新创建的组容器，并且 currentIndexInGroup 总是从 0 开始计数，实际上阻止了您跟踪多个组及其卡片的状态。
+                        let currentGroup = null;
+                        let currentIndexInGroup = 0;
+                        // const cards = []; // 定义cards数组
+
+
+                        data.forEach(group => {  // groups是一个循环变量
+                            // 为每个组创建一个组容器groupContainer
+                            const groupContainer = document.createElement('div');
+                            groupContainer.className = 'cardgroup';
+
+                            // 处理组内的卡片
+                            group.cards.forEach(cardData => {
+                                // 创建卡片容器card
+                                const card = document.createElement('div');
+                                card.className = 'business-card';
+                                card.id = cardData.id;    // 为卡片设置唯一的ID
+
+                                // 设置其样式为flex布局
+                                const content = document.createElement('div');
+                                content.style.display = 'flex';
+
+                                // 创建图片的容器imgContainer
+                                const imgContainer = document.createElement('div');
+                                imgContainer.style.width = '45%';
+                                imgContainer.style.height = '100%';
+                                const img = document.createElement('img');
+                                img.src = cardData.image;
+                                img.style.margin = '50px';
+                                imgContainer.appendChild(img);
+
+                                // 创建表格部分
+                                // 创建表格容器tableContainer，一个div标签
+                                const tableContainer = document.createElement('div');
+                                tableContainer.style.display = 'flex';
+                                tableContainer.style.justifyContent = 'center';
+                                tableContainer.style.alignItems = 'center';
+                                tableContainer.style.width = '50%';
+
+                                // 创建表格的table、tbody标签
+                                const table = document.createElement('table');
+                                table.style.marginTop = '5px';
+                                table.style.marginBottom = '10px';              // 为table添加样式
+                                const tbody = document.createElement('tbody');  // 创建一个新的tbody元素，它是表格的主体部分，用于包含表格的行（tr）。
+
+                                // 创建表头
+                                const headerRow = document.createElement('tr'); //创建一个新的表头行（headerRow）。
+                                // 创建一个新的表头单元格（headerCell），并设置其文本内容为cardData.name的值。这里cardData是一个包含数据的对象，其中name属性表示表格的名称或标题。
+                                const headerCell = document.createElement('th');
+                                headerCell.textContent = cardData.name;
+                                headerRow.appendChild(headerCell);      // 将表头单元格添加到表头行中。
+                                tbody.appendChild(headerRow);  //将表头行添加到tbody中。注意，虽然通常表头（<th>）被放置在<thead>中，但这里它被直接添加到了tbody中。在实际应用中，根据表格的结构和样式需求，可能需要将表头放置在<thead>中。
+
+                                // 添加详情
+                                cardData.details.forEach(detail => {  //遍历cardData.details数组。cardData.details是一个包含多个对象的数组，每个对象都有key和value属性，分别表示表格行的键和值。
+                                const row = document.createElement('tr');  // 对于数组中的每个details对象，创建一个新的表格行（row）。
+                                //对于每个details对象的key，创建一个新的单元格（keyCell），并设置其文本内容为detail.key的值。然后将这个单元格添加到当前行中。
+                                const keyCell = document.createElement('td');
+                                keyCell.textContent = detail.key;
+                                row.appendChild(keyCell);
+
+                                // 对于每个details对象的value，创建另一个新的单元格（valueCell），并设置其文本内容为detail.value的值。然后将这个单元格也添加到当前行中。
+                                const valueCell = document.createElement('td');
+                                valueCell.textContent = detail.value;
+                                row.appendChild(valueCell);
+
+                                tbody.appendChild(row);  // 将填充好的行添加到tbody中。
+                                });
+
+                                table.appendChild(tbody);   // 将tbody添加到table中
+                                tableContainer.appendChild(table);  // 将table添加到tableContainer中
+
+
+                                content.appendChild(imgContainer);  // 将图片的容器imgContainer添加到卡片的内容容器content（一个div元素）中，完成标签构建。
+                                content.appendChild(tableContainer);  //将表格容器tableContainer添加到卡片的内容容器content元素（一个div元素）中，完成标签构建。
+                                //此时，卡片的内容容器content元素包含了两个子元素：imgContainer和tableContainer。
+
+
+                                card.appendChild(content);  // 将卡片的内容容器content添加到卡片容器card（一个div元素）中，完成标签构建。
+
+
+                                // 创建切换按钮
+                                const toggleButtonL = document.createElement('button');
+                                const toggleButtonR = document.createElement('button');
+                                toggleButtonL.className = 'toggleButton';
+                                toggleButtonR.className = 'toggleButton';
+                                toggleButtonL.textContent = '<';
+                                toggleButtonR.textContent = '>';
+                                toggleButtonL.style.borderColor = 'black';
+                                toggleButtonR.style.borderColor = 'black';
+                                toggleButtonL.style.zIndex = '10';
+                                toggleButtonR.style.zIndex = '10';
+
+                                // 绑定点击事件到按钮
+                                // 点击<，显示上一个card，点击>，显示下一个card，当只有一个card或到达第一个或最后一个card时，不显示切换按钮。【未完成】
+                                toggleButtonL.addEventListener('click', function() {
+                                    const currentDisplay = imgContainer.style.display;
+                                    card.style.display = currentDisplay === 'none' ? 'block' : 'block';
+                                });
+                                toggleButtonR.addEventListener('click', function() {
+                                    const currentDisplay = card.style.display;
+                                    card.style.display = currentDisplay === 'none' ? 'none' : 'none';
+                                });
+
+                                // 将切换按钮添加到卡片中
+                                card.appendChild(toggleButtonL);
+                                card.appendChild(toggleButtonR);
+
+
+
+
+                                groupContainer.appendChild(card);  // 将卡片容器card添加到组容器groupContainer（一个div元素）中，完成标签构建。
+
+
+                            });
+                                container.appendChild(groupContainer);// 将组容器groupContainer添加到主容器container（一个div元素）中，完成标签构建。
+
+                            // 如果这是第一个组，则激活第一张卡片
+                            if (!currentGroup) {
+                                currentGroup = groupContainer;
+                                currentIndexInGroup = 0;
+                                currentGroup.children[currentIndexInGroup].classList.add('active');
+                            }
+                            });
+
+
+                        });
+                    });
+            </script>
         </div>
         <div>
             <h2>结构视图</h2>

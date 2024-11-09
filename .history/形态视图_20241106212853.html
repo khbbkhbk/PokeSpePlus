@@ -6,7 +6,7 @@
     <!-- <link rel="stylesheet" href="http://localhost:8080/normalize.css"> -->
     <script src="style.js"></script>
     <script>
-        document.addEventListener("DOMContentLoaded", () => { // 确保DOM元素已经加载完成
+        document.addEventListener("DOMContentLoaded", function() { // 确保DOM元素已经加载完成
             add_icon_check("icon_check_father");
             add_icon("icon_F_father");
             add_icon("icon_M_father");
@@ -191,8 +191,9 @@
 
     <table cellpadding="10" cellspacing="0" style="text-align: center; margin:0 auto;border: 1px solid black; margin-bottom:10px;margin-top:10px; font-size: 1.3vw;">
         <tr style="white-space: nowrap;">
-            <td colspan="2">宝可梦&肖像</td>
-            <td>形态名</td>
+            <td colspan="2">肖像</td>
+            <td>宝可梦</td>
+            <td>形态</td>
             <td>异色</td>
             <td>性别</td>
             <td>异称</td>
@@ -204,14 +205,13 @@
             <td>备注</td>
         </tr>
         <tr style="white-space: nowrap;">
-            <td rowspan="4">超梦</td>
-            <td rowspan="4" style="position: relative; width:2em;height: 2em;" onclick="showstyleview(this)">
-                <span style="position: absolute; cursor: pointer; bottom: 0; left: 0; width: 0; height: 0;  border-right: 10px solid transparent; border-bottom: 10px solid red;"></span>
-                <div style="display: flex; width: 100%; flex-direction: column; gap: 1rem">
-                    <img src="./素材/超梦.webp" style="width: 100%;">
-                    <img src="./素材/超梦.webp" style="width: 100%;">
-                </div>
+            <td style="position: relative; width:2em;height: 2em;" rowspan="2">
+                <img src="./素材/超梦.webp" class="poke_dream">
             </td>
+            <td style="position: relative; width:2em;height: 2em;">
+                <img src="./素材/超梦.webp" class="poke_dream">
+            </td>
+            <td rowspan="2">超梦</td>
             <td></td>
             <td style="position: relative;" class="icon_check_father">
             </td>
@@ -227,6 +227,10 @@
             <td>新进化</td>
         </tr>
         <tr style="white-space: nowrap;">
+            <td style="position: relative; width:2em;height: 2em;" onclick="showstyleview(this)">
+                <span style="position: absolute; cursor: pointer; bottom: 0; left: 0; width: 0; height: 0;  border-right: 10px solid transparent; border-bottom: 10px solid red;"></span>
+                <img src="./素材/超梦.webp" class="poke_dream">
+            </td>
             <td>超级超梦Ｘ</td>
             <td style="position: relative;" class="icon_check_father">
             </td>
@@ -245,6 +249,13 @@
             <td>已进化</td>
         </tr>
         <tr style="white-space: nowrap;">
+            <td style="position: relative; width:2em;height: 2em;" rowspan="2">
+                <img src="./素材/超梦.webp" class="poke_dream">
+            </td>
+            <td style="position: relative; width:2em;height: 2em;">
+                <img src="./素材/超梦.webp" class="poke_dream">
+            </td>
+            <td rowspan="2">超梦</td>
             <td></td>
             <td style="position: relative;" class="icon_check_father">
             </td>
@@ -260,6 +271,9 @@
             <td>新进化</td>
         </tr>
         <tr style="white-space: nowrap;">
+            <td style="position: relative; width:2em;height: 2em;">
+                <img src="./素材/超梦.webp" class="poke_dream">
+            </td>
             <td>超级超梦Ｙ<br/><small>×2</small></td>
             <td style="position: relative;" class="icon_check_father">
             </td>
@@ -307,7 +321,13 @@
             <td>黄昏之鬃</td>
             <td style="position: relative;" class="icon_check_father">
             </td>
-            <td style="position: relative;" class="icon_N_father">
+            <td style="position: relative;">
+                <svg t="1730717986002" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2238">
+                    <path d="M512 512m-512 0a512 512 0 1 0 1024 0 512 512 0 1 0-1024 0Z" fill="#909399" p-id="1913"></path>
+                    <g transform="translate(170, 120) scale(0.7)"><!-- 缩小 -->
+                        <path d="M923.496569 583.465285a53.535499 53.535499 0 0 1-11.055131 72.267805l-6.653552 4.503943-306.57518 176.882107 150.063176 86.700894a53.535499 53.535499 0 0 1-46.472498 96.220591l-7.165363-3.582682-203.598675-117.511955L288.543032 1016.457943a53.535499 53.535499 0 0 1-60.086688-88.236329l6.551189-4.40158 149.960815-86.700894L78.49553 660.237033a53.535499 53.535499 0 0 1 46.472498-96.220591l7.063001 3.377957 360.008317 207.897893 360.213041-207.795531a53.535499 53.535499 0 0 1 71.346545 15.968524zM492.24407 0a329.606705 329.606705 0 1 1 0 659.213409 329.606705 329.606705 0 0 1 0-659.213409z m0 107.17336a222.535707 222.535707 0 1 0 0 444.969052 222.535707 222.535707 0 0 0 0-444.969052z" fill="#FFFFFF" p-id="2239"></path>
+                    </g>
+                </svg>
             </td>
             <td style="position: relative; " onclick="showDetails(this)"><span style="position: absolute; cursor: pointer; top: 0; right: 0; width: 0; height: 0;  border-left: 10px solid transparent; border-top: 10px solid red;"></span>👤 昵称 哲哲</td>
             <td style="position: relative;" onclick="showDetails(this)">
@@ -328,7 +348,13 @@
             <td>究极奈克洛兹玛</td>
             <td style="position: relative;" class="icon_check_father">
             </td>
-            <td style="position: relative;" class="icon_N_father">
+            <td style="position: relative;">
+                <svg t="1730717986002" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2238">
+                    <path d="M512 512m-512 0a512 512 0 1 0 1024 0 512 512 0 1 0-1024 0Z" fill="#909399" p-id="1913"></path>
+                    <g transform="translate(170, 120) scale(0.7)"><!-- 缩小 -->
+                        <path d="M923.496569 583.465285a53.535499 53.535499 0 0 1-11.055131 72.267805l-6.653552 4.503943-306.57518 176.882107 150.063176 86.700894a53.535499 53.535499 0 0 1-46.472498 96.220591l-7.165363-3.582682-203.598675-117.511955L288.543032 1016.457943a53.535499 53.535499 0 0 1-60.086688-88.236329l6.551189-4.40158 149.960815-86.700894L78.49553 660.237033a53.535499 53.535499 0 0 1 46.472498-96.220591l7.063001 3.377957 360.008317 207.897893 360.213041-207.795531a53.535499 53.535499 0 0 1 71.346545 15.968524zM492.24407 0a329.606705 329.606705 0 1 1 0 659.213409 329.606705 329.606705 0 0 1 0-659.213409z m0 107.17336a222.535707 222.535707 0 1 0 0 444.969052 222.535707 222.535707 0 0 0 0-444.969052z" fill="#FFFFFF" p-id="2239"></path>
+                    </g>
+                </svg>
             </td>
             <td style="position: relative; " onclick="showDetails(this)"><span style="position: absolute; cursor: pointer; top: 0; right: 0; width: 0; height: 0;  border-left: 10px solid transparent; border-top: 10px solid red;"></span>👤 昵称 哲哲</td>
             <td style="position: relative;" onclick="showDetails(this)">
@@ -350,7 +376,13 @@
             <td>树木的样子</td>
             <td style="position: relative;" class="icon_check_father">
             </td>
-            <td style="position: relative;" class="icon_N_father">
+            <td style="position: relative;">
+                <svg t="1730717986002" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2238">
+                    <path d="M512 512m-512 0a512 512 0 1 0 1024 0 512 512 0 1 0-1024 0Z" fill="#909399" p-id="1913"></path>
+                    <g transform="translate(170, 120) scale(0.7)"><!-- 缩小 -->
+                        <path d="M923.496569 583.465285a53.535499 53.535499 0 0 1-11.055131 72.267805l-6.653552 4.503943-306.57518 176.882107 150.063176 86.700894a53.535499 53.535499 0 0 1-46.472498 96.220591l-7.165363-3.582682-203.598675-117.511955L288.543032 1016.457943a53.535499 53.535499 0 0 1-60.086688-88.236329l6.551189-4.40158 149.960815-86.700894L78.49553 660.237033a53.535499 53.535499 0 0 1 46.472498-96.220591l7.063001 3.377957 360.008317 207.897893 360.213041-207.795531a53.535499 53.535499 0 0 1 71.346545 15.968524zM492.24407 0a329.606705 329.606705 0 1 1 0 659.213409 329.606705 329.606705 0 0 1 0-659.213409z m0 107.17336a222.535707 222.535707 0 1 0 0 444.969052 222.535707 222.535707 0 0 0 0-444.969052z" fill="#FFFFFF" p-id="2239"></path>
+                    </g>
+                </svg>
             </td>
             <td style="position: relative; " onclick="showDetails(this)"><span style="position: absolute; cursor: pointer; top: 0; right: 0; width: 0; height: 0;  border-left: 10px solid transparent; border-top: 10px solid red;"></span>👤 昵称 哲哲</td>
             <td style="position: relative; " onclick="showDetails(this)">
@@ -372,7 +404,13 @@
             <td>茧的样子</td>
             <td style="position: relative;" class="icon_check_father">
             </td>
-            <td style="position: relative;" class="icon_N_father">
+            <td style="position: relative;">
+                <svg t="1730717986002" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2238">
+                    <path d="M512 512m-512 0a512 512 0 1 0 1024 0 512 512 0 1 0-1024 0Z" fill="#909399" p-id="1913"></path>
+                    <g transform="translate(170, 120) scale(0.7)"><!-- 缩小 -->
+                        <path d="M923.496569 583.465285a53.535499 53.535499 0 0 1-11.055131 72.267805l-6.653552 4.503943-306.57518 176.882107 150.063176 86.700894a53.535499 53.535499 0 0 1-46.472498 96.220591l-7.165363-3.582682-203.598675-117.511955L288.543032 1016.457943a53.535499 53.535499 0 0 1-60.086688-88.236329l6.551189-4.40158 149.960815-86.700894L78.49553 660.237033a53.535499 53.535499 0 0 1 46.472498-96.220591l7.063001 3.377957 360.008317 207.897893 360.213041-207.795531a53.535499 53.535499 0 0 1 71.346545 15.968524zM492.24407 0a329.606705 329.606705 0 1 1 0 659.213409 329.606705 329.606705 0 0 1 0-659.213409z m0 107.17336a222.535707 222.535707 0 1 0 0 444.969052 222.535707 222.535707 0 0 0 0-444.969052z" fill="#FFFFFF" p-id="2239"></path>
+                    </g>
+                </svg>
             </td>
             <td style="position: relative; " onclick="showDetails(this)"><span style="position: absolute; cursor: pointer; top: 0; right: 0; width: 0; height: 0;  border-left: 10px solid transparent; border-top: 10px solid red;"></span>👤 昵称 哲哲</td>
             <td style="position: relative;" onclick="showDetails(this)">

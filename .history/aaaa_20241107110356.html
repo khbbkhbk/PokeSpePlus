@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        /* 根据视窗宽度调整每行的占据可用空间 */
+        @media (max-width: 100vw) {
+            .card-container {
+                grid-template-columns: repeat(5, 1fr);
+            }
+        }
+        @media (max-width: 80vw) {
+            .card-container {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+        @media (max-width: 60vw) {
+            .card-container {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+        @media (max-width: 40vw) {
+            .card-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        @media (max-width: 20vw) {
+            .card-container {
+                grid-template-columns: repeat(1, 1fr);
+            }
+        }
+        .card-container {
+            width: 100%;
+            display: grid;
+            grid-template-rows: auto;
+            }
+        .card-gropup {
+            font-size: 16px;
+            border-radius: 14px;
+            border: 1px solid black;
+            cursor: pointer;
+            padding: 20px;
+            margin: 2%;
+        }
+    </style>
+    <h2 style="border-bottom: 1px solid #a2a9b1;"><span title="原名：二名视图" style="border-bottom: 1px dotted black;">卡片视图</span></h2>
+    <div style="border: 1px solid black; width: 100%;">
+        <div class="card-container">
+            <div class="card-gropup">
+                <div style="display: flex;"><div style="width: 45%; height: 100%;"><img src="https://media.52poke.com/wiki/e/ec/%E8%B5%A4%E7%BA%A2_OD_GSC.png" style="margin: 50px;"></div><div style="display: flex; justify-content: center; align-items: center; width: 50%;"><table style="margin-top: 5px; margin-bottom: 10px;"><tbody><tr><th>玛琪艾儿</th></tr><tr><td>首次</td><td>✅</td></tr><tr><td>形式</td><td>径出</td></tr><tr><td>表现</td><td>剪影</td></tr></tbody></table></div></div>
+            </div>
+            <div class="card-gropup">2</div>
+            <div class="card-gropup">3</div>
+            <div class="card-gropup">4</div>
+            <div class="card-gropup">5</div>
+            <div class="card-gropup">6</div>
+            <div class="card-gropup">7</div>
+        </div>
+    </div>
+
+
+</body>
+</html>
