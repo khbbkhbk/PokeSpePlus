@@ -10,85 +10,90 @@
     <h2>结构视图</h2>
 
 
-    <style>
-        .node circle {
-            fill: #fff;
-            stroke: steelblue;
-            stroke-width: 1.5px;
-        }
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <style>
+            .node circle {
+                fill: #fff;
+                stroke: steelblue;
+                stroke-width: 1.5px;
+            }
 
-        .node text {
-            font: 10px sans-serif;
-        }
+            .node text {
+                font: 10px sans-serif;
+            }
 
-        .link {
-            fill: none;
-            stroke: #ccc;
-            stroke-width: 1.5px;
-        }
-    </style>
-
-    <div class="bo" style="width: 100%; display: flex; justify-content: center;">
+            .link {
+                fill: none;
+                stroke: #ccc;
+                stroke-width: 1.5px;
+            }
+        </style>
+    </head>
+    <body>
         <script src="https://d3js.org/d3.v6.min.js"></script>
         <script>
             // 创建一个SVG元素
-            var svg = d3.select("div.bo")
+            var svg = d3.select("body")
                 .append("svg")
                 .attr("width", 960)
                 .attr("height", 600);
- // 创建一个树布局
- var tree = d3.tree()
-            .size([600, 300]);
 
-        // 创建一个根节点
-        var root = d3.hierarchy({
-            "name": "Root",
-            "children": [
-                {
-                    "name": "Child 1",
-                    "children": [
-                        { "name": "Grandchild 1" },
-                        { "name": "Grandchild 2" }
-                    ]
-                },
-                {
-                    "name": "Child 2",
-                    "children": [
-                        { "name": "Grandchild 3" },
-                        { "name": "Grandchild 4" }
-                    ]
-                }
-            ]
-        });
+            // 创建一个树布局
+            var tree = d3.tree()
+                .size([600, 300]);  // 注意这里将第二个值改为负数
 
-        // 创建链接
-        var link = svg.selectAll(".link")
-            .data(tree(root).links())
-            .enter().append("path")
-            .attr("class", "link")
-            .attr("d", d3.linkVertical()
-                .x(function(d) { return d.y; })
-                .y(function(d) { return d.x; }));
+            // 创建一个根节点
+            var root = d3.hierarchy({
+                "name": "Root",
+                "children": [
+                    {
+                        "name": "Child 1",
+                        "children": [
+                            { "name": "Grandchild 1" },
+                            { "name": "Grandchild 2" }
+                        ]
+                    },
+                    {
+                        "name": "Child 2",
+                        "children": [
+                            { "name": "Grandchild 3" },
+                            { "name": "Grandchild 4" }
+                        ]
+                    }
+                ]
+            });
 
-        // 创建节点
-        var node = svg.selectAll(".node")
-            .data(root.descendants())
-            .enter().append("g")
-            .attr("class", "node")
-            .attr("transform", function(d) { return "translate(" + d.y + "," + d.x + ")"; });
+            // 创建链接
+            var link = svg.selectAll(".link")
+                .data(tree(root).links())
+                .enter().append("path")
+                .attr("class", "link")
+                .attr("d", d3.linkHorizontal()
+                    .x(function(d) { return d.y; })
+                    .y(function(d) { return d.x; }));
 
-        // 添加圆形节点
-        node.append("circle")
-            .attr("r", 4.5);
+            // 创建节点
+            var node = svg.selectAll(".node")
+                .data(root.descendants())
+                .enter().append("g")
+                .attr("class", "node")
+                .attr("transform", function(d) { return "translate(" + d.y + "," + d.x + ")"; });
 
-        // 添加文本
-        node.append("text")
-            .attr("dy", 3)
-            .attr("x", function(d) { return d.children ? -8 : 8; })
-            .style("text-anchor", function(d) { return d.children ? "end" : "start"; })
-            .text(function(d) { return d.data.name; });
+            // 添加圆形节点
+            node.append("circle")
+                .attr("r", 4.5);
+
+            // 添加文本
+            node.append("text")
+                .attr("dy", 3)
+                .attr("x", function(d) { return d.children ? -8 : 8; })
+                .style("text-anchor", function(d) { return d.children ? "end" : "start"; })
+                .text(function(d) { return d.data.name; });
         </script>
-    </div>
+    </body>
+    </html>
 
 
 

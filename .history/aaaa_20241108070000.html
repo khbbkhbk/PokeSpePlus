@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        /* 根据视窗宽度调整每行的占据可用空间 */
+        @media (max-width: 9999999999999999px) {
+            .card-containe,
+            .card-container {
+                grid-template-columns: repeat(5, 1fr);
+            }
+        }
+        @media (max-width: 1920px) {
+            .card-containe,
+            .card-container {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+        @media (max-width: 1440px) {
+            .card-containe,
+            .card-container {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+        @media (max-width: 960px) {
+            .card-containe,
+            .card-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        @media (max-width: 480px) {
+            .card-containe,
+            .card-container {
+                grid-template-columns: repeat(1, 1fr);
+            }
+        }
+        .card-containe,
+        .card-container {
+            width: inherit;
+            display: grid;
+            grid-template-rows: auto;
+            gap: 10px;
+            padding: 10px;
+            border: 1px solid black;
+            overflow-y: auto;
+            }
+        .card-group {
+            height: 100px;
+            font-size: 16px;
+            border-radius: 14px;
+            border: 1px solid black;
+            padding: 20px;
+            overflow: hidden;;
+            transition: 0.3s ease;
+            position: relative;
+            width: calc(100% - 42px);
+            &:hover {
+                transform: scale(1.05);
+            }
+        }
+        button{
+            cursor: pointer;
+        }
+        .card-group .active {
+            z-index: 999;
+        }
+    </style>
+    <h2 style="border-bottom: 1px solid #a2a9b1;"><span title="原名：二名视图" style="border-bottom: 1px dotted black;">卡片视图</span></h2>
+    <div>
+        <div class="card-container">
+            <div class="card-group" id="cardgroup00">
+                <div style="display: flex; position: absolute; width: inherit; height: 100%; align-items: center; bottom:0%; background-color: white; z-index: 999;">
+                    <div style="width: 50%; display: flex; justify-content: center; align-items: center;">
+                        <img src="https://media.52poke.com/wiki/e/ec/%E8%B5%A4%E7%BA%A2_OD_GSC.png" alt="">
+                    </div>
+                    <div style="width: 50%;">
+                        <div style="font-weight: bold; display: flex; gap: 5%; margin-bottom: 5%;">玛琪艾儿
+                            <div style="width:1em; display: flex;">
+                                <svg t="1730718794814" class="icon_check" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="9758"><path d="M0 512C0 229.234759 229.234759 0 512 0s512 229.234759 512 512-229.234759 512-512 512S0 794.765241 0 512z m419.310345 194.630621a35.310345 35.310345 0 0 0 49.399172 1.271172l335.518897-311.931586a35.310345 35.310345 0 0 0-48.075035-51.729655l-309.124413 289.544827-145.125518-149.645241a35.310345 35.310345 0 1 0-50.688 49.169655l168.112552 173.320828z" fill="#00D26A" p-id="9759"></path></svg>
+                            </div>
+                        </div>
+                        <span>径出</span>
+                        <span>回忆</span>
+                    </div>
+                    <div style="position: absolute; top: 0;right: 0;">
+                        <button style="background-color: transparent; border: none;font-size:large;" onclick="ToggleToPreCard('cardgroup00')">&lt;</button>
+                        <button style="background-color: transparent; border: none;font-size:large;" onclick="ToggleToNextCard('cardgroup00')">&gt;</button>
+                    </div>
+                </div>
+                <div style="display: flex; position: absolute; width: inherit; height: 100%; align-items: center; bottom: 0%; background-color: white;">
+                    <div style="width: 50%; display: flex; justify-content: center; align-items: center;">
+                        <img src="https://media.52poke.com/wiki/e/ec/%E8%B5%A4%E7%BA%A2_OD_GSC.png" alt="">
+                    </div>
+                    <div style="width: 50%;">
+                        <div style="font-weight: bold; display: flex; gap: 5%; margin-bottom: 5%;">玛琪艾儿
+                            <div style="width:1em; display: flex;">
+                                <svg t="1730718794814" class="icon_check" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="9758"><path d="M0 512C0 229.234759 229.234759 0 512 0s512 229.234759 512 512-229.234759 512-512 512S0 794.765241 0 512z m419.310345 194.630621a35.310345 35.310345 0 0 0 49.399172 1.271172l335.518897-311.931586a35.310345 35.310345 0 0 0-48.075035-51.729655l-309.124413 289.544827-145.125518-149.645241a35.310345 35.310345 0 1 0-50.688 49.169655l168.112552 173.320828z" fill="#00D26A" p-id="9759"></path></svg>
+                            </div>
+                        </div>
+                        <span>径出</span>
+                        <span>剪影</span>
+                    </div>
+                    <div style="position: absolute; top: 0;right: 0;">
+                        <button style="background-color: transparent; border: none;font-size:large;">&lt;</button>
+                        <button style="background-color: transparent; border: none;font-size:large;">&gt;</button>
+                    </div>
+                </div>
+            </div>
+            <div class="card-group">
+                <div style="display: flex; position: relative; height: 100%; align-items: center; margin-bottom: 20px;">
+                    <div style="width: 50%; display: flex; justify-content: center; align-items: center;">
+                        <img src="https://media.52poke.com/wiki/e/ec/%E8%B5%A4%E7%BA%A2_OD_GSC.png" alt="">
+                    </div>
+                    <div style="width: 50%;">
+                        <div style="font-weight: bold; display: flex; gap: 5%; margin-bottom: 5%;">玛琪艾儿<div style="width:1em; display: flex;"><svg t="1730718794814" class="icon_check" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="9758"><path d="M0 512C0 229.234759 229.234759 0 512 0s512 229.234759 512 512-229.234759 512-512 512S0 794.765241 0 512z m419.310345 194.630621a35.310345 35.310345 0 0 0 49.399172 1.271172l335.518897-311.931586a35.310345 35.310345 0 0 0-48.075035-51.729655l-309.124413 289.544827-145.125518-149.645241a35.310345 35.310345 0 1 0-50.688 49.169655l168.112552 173.320828z" fill="#00D26A" p-id="9759"></path></svg></div></div>
+                        <span>径出</span>
+                        <span>剪影</span>
+                    </div>
+                    <div style="position: absolute; top: 0;right: 0;">
+                        <button style="background-color: transparent; border: none;font-size:large;">&lt;</button>
+                        <button style="background-color: transparent; border: none;font-size:large;">&gt;</button>
+                    </div>
+                </div>
+                <div style="display: flex; position: relative; height: 100%; align-items: center; margin-bottom: 20px;">
+                    <div style="width: 50%; display: flex; justify-content: center; align-items: center;">
+                        <img src="https://media.52poke.com/wiki/e/ec/%E8%B5%A4%E7%BA%A2_OD_GSC.png" alt="">
+                    </div>
+                    <div style="width: 50%;">
+                        <div style="font-weight: bold;">玛琪艾儿</div>
+                        <span>✅</span>
+                        <span>径出</span>
+                        <span>剪影</span>
+                    </div>
+                    <div style="position: absolute; top: 0;right: 0;">
+                        <button style="background-color: transparent; border: none;font-size:large;">&lt;</button>
+                        <button style="background-color: transparent; border: none;font-size:large;">&gt;</button>
+                    </div>
+                </div>
+            </div>
+            <div class="card-group">3</div>
+            <div class="card-group">4</div>
+            <div class="card-group">5</div>
+            <div class="card-group">6</div>
+            <div class="card-group">7</div>
+        </div>
+        <div style="position:relative; text-align: right; margin-top: 10px;">
+            <button >&lt;</button>
+            <button >&gt;</button>
+        </div>
+    </div>
+
+    <form>
+        <label for="card-deck">选择视图：</label>
+            <select name="card-deck" id="card-deck" onchange="loadview(this.value)">
+                <option value="list_view">列表视图</option>
+                <option value="card_view">卡片视图</option>
+            </select>
+    </form>
+    <button onclick="loadview('card_view')">111111</button>
+
+    <div class="card_view"></div>
+
+
+    <script>
+        // 函数逻辑：
+        // 每次打开网页，默认不读取
+        // 当点击“卡片视图”按钮后才开始读取
+        // 初始化读取，读取全部卡组的卡片，并展示第一张
+        // 只有点击切换按钮或全局切换按钮，才开始读取整个卡组
+        var card_list = []
+
+        function loadview(value) {
+            // 覆盖现有元素
+            const card_container_list = document.querySelectorAll('.card-containe');
+            if(card_container_list){
+                card_container_list.forEach(card_container => {
+                    card_container.remove();
+                });
+            }
+            // 清空数组
+            card_list.splice(0, card_list.length);
+
+            if (value === 'list_view') {
+                load_listview()
+            } else if(value === 'card_view') {
+                load_cardview()
+            }else if(value === 'structure_view') {
+                load_structureview()
+            }
+        }
+
+        function load_cardview(){
+            fetch('roles_cards.json')
+            .then(response => response.json())
+            .then(data => {
+                data.forEach(card_group => {
+                    card_list.push(card_group.cards)    // 此时card_List是一个对象数组
+                });
+                Initial_card(card_list)     // 初始化所有卡片
+                console.log(card_list)
+                // var card_currentindex = repeat(0, card_list.length)
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        }
+
+        function Initial_card(card_list){
+            const card_view = document.querySelector('.card_view');
+                const card_container = document.createElement('div');
+                card_container.className='card-containe';
+
+                card_list.forEach((cardgroup, index) => {
+                    const card_group = document.createElement('div');
+                    card_group.className = 'card-group';
+                    card_group.id = 'cardgroup' + String(index);
+                    console.log(`cardgroup: ${cardgroup}`)
+
+                        cardgroup.forEach((card, index) => {
+                            const card_element = document.createElement('div');
+                            card_element.style = "display: flex; position: absolute; width: inherit; height: 100%; align-items: center; bottom:0%; background-color: white;";
+                            if (index == 0) {
+                                card_element.className = 'active';
+                            }
+                                const div_leftcontainer = document.createElement('div');
+                                div_leftcontainer.style = "width: 50%; display: flex; justify-content: center; align-items: center;";
+                                    const img_portrait = document.createElement('img');
+                                    img_portrait.src = card.image;
+                                    img_portrait.alt = "";
+                                div_leftcontainer.appendChild(img_portrait);
+
+                                const div_rightcontainer = document.createElement('div');
+                                div_rightcontainer.style = "width: 50%;";
+                                    const div_text = document.createElement('div');
+                                    div_text.style = "font-weight: bold; display: flex; gap: 5%; margin-bottom: 5%;";
+                                    div_text.textContent = card.name;
+                                    const span01 = document.createElement('span');
+                                    span01.textContent = card.form;
+                                    const span02 = document.createElement('span');
+                                    span02.textContent = card.perform;
+                                div_rightcontainer.appendChild(div_text);
+                                div_rightcontainer.appendChild(span01);
+                                div_rightcontainer.appendChild(span02);
+
+                                const div_button = document.createElement('div')
+                                div_button.style = "position: absolute; top: 0;right: 0;";
+                                    const button01 = document.createElement('button');
+                                    button01.style="background-color: transparent; border: none;font-size:large;";
+                                    button01.textContent = "<"
+                                    button01.onclick = function () { ToggleToPreCard(card_group.id) };
+                                    const button02 = document.createElement('button');
+                                    button02.style="background-color: transparent; border: none;font-size:large;";
+                                    button02.textContent = ">"
+                                    button02.onclick = function () { ToggleToNextCard(card_group.id) };
+                                div_button.appendChild(button01);
+                                div_button.appendChild(button02);
+                            card_element.appendChild(div_leftcontainer);
+                            card_element.appendChild(div_rightcontainer);
+                            card_element.appendChild(div_button);
+                            card_group.appendChild(card_element);
+
+                        })
+                    card_container.appendChild(card_group);
+                    }
+                )
+                card_view.appendChild(card_container);
+        }
+
+        //切换当前卡组的卡片为下一张卡片
+        function ToggleToNextCard(group_id) {
+            const active_card = document.getElementById(group_id).querySelector('.active');      // 获取当前卡组的当前卡片
+            console.log(`active_card: ${active_card}`);
+            console.log(active_card);
+            // 注意不能先移除当前卡片的激活状态，再查找其兄弟节点，因为一旦移除，html文档发生改变，active_card本身的值在html文档中就不存在了，更别说查找其兄弟节点了
+
+            // 获取当前卡片的下一个兄弟节点
+            const nextCard = active_card.nextElementSibling;
+            console.log(`nextCard: ${nextCard}`);
+            console.log(nextCard);
+
+            // 如果下一个兄弟节点存在，则将其激活为当前卡片
+            if (nextCard) {
+                nextCard.classList.add('active');
+                active_card.classList.remove('active');     // 然后再移除当前卡片的激活状态
+            }
+            // else {
+            //     console.log("没有下一张卡片");
+            //     console.log(active_card.previousElementSibling);
+            // }
+
+        }
+        // 切换当前卡组的卡片为上一张卡片
+        function ToggleToPreCard(group_id) {
+            const active_card = document.getElementById(group_id).querySelector('.active');      // 获取当前卡组的当前卡片
+
+            // 获取当前卡片的上一个兄弟节点
+            const PreCard = active_card.previousElementSibling;
+            // 如果上一个兄弟节点存在，则将其激活为当前卡片
+            if (PreCard) {
+                PreCard.classList.add('active');
+                active_card.classList.remove('active');     // 然后再移除当前卡片的激活状态
+            }
+            else {
+                // console.log("没有上一张卡片");      // 否则查找最后一个兄弟节点，并将其激活为当前卡片
+            }
+
+        }
+        // // 切换当前卡组的卡片为第一张卡片
+        // function ToggleToFirstCard() {
+
+        // }
+        // // 切换当前卡组的卡片为最后一张卡片
+        // function ToggleToLastCard() {
+
+        // }
+
+
+
+
+        // document.addEventListener('DOMContentLoaded',() => {
+        // });
+        // 添加按钮事件监听
+        // document.getElementById('prevCard').addEventListener('click', () => {
+        //     moveToPreviousCard();
+        // });
+        // document.getElementById('nextCard').addEventListener('click', () => {
+        //     moveToNextCard();
+        // });
+        // 全局切换按钮
+        // document.getElementById('toggleBtn').addEventListener('click', () => {
+        //     var card1 = document.getElementById("card11");
+        //     var card2 = document.getElementById("card12");
+
+        //     if (card1.style.display === 'none') {
+        //         card1.style.display = 'block';
+        //         card2.style.display = 'none';
+        //     } else {
+        //         card1.style.display = 'none';
+        //         card2.style.display = 'block';
+        //     }
+        // });
+
+        function moveToPreviousCard() {
+            if (currentIndexInGroup > 0) {
+                currentGroup.children[currentIndexInGroup].classList.remove('active');
+                currentIndexInGroup--;
+                currentGroup.children[currentIndexInGroup].classList.add('active');
+            }
+        }
+        function moveToNextCard() {
+            const cardsInGroup = currentGroup.children;
+            if (currentIndexInGroup < cardsInGroup.length - 1) {
+                currentGroup.children[currentIndexInGroup].classList.remove('active');
+                currentIndexInGroup++;
+                currentGroup.children[currentIndexInGroup].classList.add('active');
+            }
+        }
+        function moveToPreviousCard2(cards) {
+            let activeIndex = cards.findIndex(card => card.classList.contains('active'));
+            if (activeIndex > 0) {
+            cards[activeIndex].classList.remove('active');
+            cards[activeIndex - 1].classList.add('active');
+            }
+        }
+        function moveToNextCard2(cards) {
+            // 查找当前激活的卡片索引
+            let activeIndex = cards.findIndex(card => card.classList.contains('active'));
+
+            // 如果找到了激活的卡片
+            if (activeIndex !== -1) {
+                // 移除当前卡片的激活状态
+                cards[activeIndex].classList.remove('active');
+
+                // 尝试激活下一张卡片
+                // 注意检查是否已经到了卡片的末尾
+                let nextIndex = activeIndex + 1;
+                if (nextIndex < cards.length) {
+                    cards[nextIndex].classList.add('active');
+                } else {
+                    // 如果已经是最后一张卡片，可以选择重置到第一张卡片或其他逻辑
+                    // 例如，重置到第一张卡片
+                    cards[0].classList.add('active');
+                }
+            }
+        }
+
+        function add_card2() {
+            const card = document.createElement('div');
+            card.className = 'business-card';
+            card.id = cardData.id;
+
+            const content = document.createElement('div');
+            content.style.display = 'flex';
+
+            // 创建图片部分
+            const imgContainer = document.createElement('div');
+            imgContainer.style.width = '45%';
+            imgContainer.style.height = '100%';
+            const img = document.createElement('img');
+            img.src = cardData.image;
+            img.style.margin = '50px';
+            imgContainer.appendChild(img);
+
+            content.appendChild(imgContainer);
+            card.appendChild(content);
+        }
+        function initial_card2(){
+            // 初始显示第一张名片
+            if (cards.length > 0) {
+                cards[0].classList.add('active');
+            }
+        }
+
+
+
+
+    </script>
+
+</body>
+</html>

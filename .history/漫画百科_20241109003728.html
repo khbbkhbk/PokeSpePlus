@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="'zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="normalize.css">
+    <link rel="stylesheet" href="http://localhost:8080/normalize.css">
+    <title>漫画百科</title>
+    <style>
+        table:not(.table_infoboxstyle)  {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            border: 1px solid black;
+            padding: 5px;
+            white-space: nowrap;
+            text-align: center;
+        }
+
+        #table-container {
+            width: 100%;
+            overflow-x: auto;
+        }
+    </style>
+    <style>
+        #directory {
+            width: 500px;
+            border: 1px solid #000;
+            padding: 10px;
+        }
+
+        #directory ul {
+
+        }
+
+        #directory li.uyh {
+            padding: 5px 0;
+            /* border-bottom: 1px solid #ddd; */
+            margin-right: 30px;
+            text-align: center;
+            padding: 5px;
+        }
+
+        a {
+            white-space: nowrap;
+        }
+
+        .uyh li {
+            list-style: outside;
+            margin: 20px;
+            padding: 0px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div style="width: 85%;margin: 0 auto; float: right;">
+        <h2 style="border-bottom: 1px solid #a2a9b1;">宝可梦特别篇 第M话</h2>
+
+        <!-- <div style="display: inline-block; width: 100%;">
+            <div style="display: inline-block;">
+                <p style="text-indent: 2em">
+                    <b>中文主标题 中文副标题</b>（日文︰<b><span lang="ja">日文主标题 日文副标题</span></b>）是X·Y篇的第N话，也是宝可梦特别篇的第M话。
+                </p>
+                <center><h2>各版译名</h2></center>
+                <div id="table-container2" style="width: 80%; margin: 0 auto;"></div>
+                <script>
+                    fetch('version.json')       // http://localhost:8080/
+                        .then(response => response.json())
+                        .then(data => {
+                            const table = document.createElement('table');
+                            const tableHeadRow = document.createElement('tr');
+                            for (const key in data[0]) {
+                                const tableHeadCell = document.createElement('th');
+                                tableHeadCell.textContent = key;
+                                tableHeadRow.appendChild(tableHeadCell);
+                            }
+                            table.appendChild(tableHeadRow);
+                            for (const row of data) {
+                            const tableBodyRow = document.createElement('tr');
+                                for (const key in row) {
+                                    const tableBodyCell = document.createElement('td');
+                                    tableBodyCell.textContent = row[key];
+                                    tableBodyRow.appendChild(tableBodyCell);
+                                }
+                                table.appendChild(tableBodyRow);
+                            }
+                            const tableContainer = document.getElementById('table-container2');
+                            tableContainer.appendChild(table);
+                        });
+                </script>
+            </div>
+            <table class="table_infoboxstyle tablebg_XY_Y tableouterbd_XY" align="right">
+                <tbody>
+                    <tr>
+                        <td class="tablePOT_bd cell_normal" colspan="2">
+                            <span class="tabletitle">中文主标题</span><br><span class="tablesubtitle">中文副标题</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="table_mainimg cell_normal" colspan="2">
+                            <a target="_blank" rel="noopener"><img style="aspect-ratio: auto 320 / 429" alt="图片注释"
+                                    src="https://media.52poke.com/wiki/thumb/4/40/PS549.png/480px-PS549.png"
+                                    referrerpolicy="no-referrer"></a>
+                            <br><span lang="ja" class="tablesubtitle">日文标题<br>日文副标题</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="tablepropertiesbg_XY_X cell_normal tablePOT_bd" colspan="2">基本信息</th>
+                    </tr>
+                    <tr>
+                        <th class="celltext_bg cell_normal">系列</th>
+                        <td class="celltext_bg cell_normal">宝可梦特别篇</td>
+                    </tr>
+                    <tr>
+                        <th class="celltext_bg cell_normal">章节</th>
+                        <td class="celltext_bg cell_normal">第十二章<br>Ｘ·Ｙ篇</td>
+                    </tr>
+                    <tr>
+                        <th class="celltext_bg cell_normal"><span
+                                title="通巻（平假名：つうかん，罗马音：tsuukan），俗称单行本（日文：単行本，平假名：たんこうぼん，罗马音：Tankoubon）"
+                                class="text_help">总卷[版]</span></th>
+                        <td class="celltext_bg cell_normal">
+                            第55卷 <img title="小学馆" class="icon_tip" width="15"
+                                src="app://8533c2d579a107bbf24dfcf9c571fab7cdfe/C:/Users/123/Desktop/%E6%9D%82%E9%A1%B9/%E5%AE%9D%E5%8F%AF%E6%A2%A6/%E6%9C%AA%E5%91%BD%E5%90%8D/Z-%E9%99%84%E4%BB%B6/%E5%9B%BE%E6%A0%87/icon%E5%B0%8F%E5%AD%A6%E9%A6%86.png"
+                                referrerpolicy="no-referrer"><br>
+                            Volume XX <img title="VIZ Media（美国碧日）" class="icon_tip" width="15"
+                                src="app://8533c2d579a107bbf24dfcf9c571fab7cdfe/C:/Users/123/Desktop/%E6%9D%82%E9%A1%B9/%E5%AE%9D%E5%8F%AF%E6%A2%A6/%E6%9C%AA%E5%91%BD%E5%90%8D/Z-%E9%99%84%E4%BB%B6/%E5%9B%BE%E6%A0%87/iconVIZ%20Media.ico"
+                                referrerpolicy="no-referrer"><br>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="celltext_bg cell_normal"><i><span title="俗称先行本（日文：）" class="text_help">先行版</span></i>
+                        </th>
+                        <td class="celltext_bg cell_normal">
+                            第1卷 <img title="コロコロ" class="icon_tip" width="15"
+                                src="app://8533c2d579a107bbf24dfcf9c571fab7cdfe/C:/Users/123/Desktop/%E6%9D%82%E9%A1%B9/%E5%AE%9D%E5%8F%AF%E6%A2%A6/%E6%9C%AA%E5%91%BD%E5%90%8D/Z-%E9%99%84%E4%BB%B6/%E5%9B%BE%E6%A0%87/iconcorocoro.png"
+                                referrerpolicy="no-referrer">
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="celltext_bg cell_normal">刊载平台</th>
+                        <td class="celltext_bg cell_normal">
+                            <span title="COROCORO一级棒！（暂译）" lang="ja" class="text_help">コロコロイチバン!</span> 2022年9月号<br>
+                            杂志/媒体
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="celltext_bg cell_normal">章内话数</th>
+                        <td class="celltext_bg cell_normal">第1话</td>
+                    </tr>
+                    <tr>
+                        <th class="celltext_bg cell_normal">总话数</th>
+                        <td class="celltext_bg cell_normal">第549话</td>
+                    </tr>
+                    <tr>
+                        <th class="tablepropertiesbg_XY_X cell_normal tablePOT_bd" colspan="2">剧情信息</th>
+                    </tr>
+                    <tr>
+                        <th class="celltext_bg celltext_BLradius cell_normal">主要发生地</th>
+                        <td class="celltext_bg celltext_BRradius cell_normal">朝香镇</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div id="directory" style="margin:10px; display:flex; flex-direction:column;align-items:center;justify-items:center; border: 1px solid black;">
+                <center><h2 style="margin: 0;">目录</h2></center>
+                <div>
+                    <ul style="display:flex;flex-direction:column">
+                        <li class="uyh" style="list-style: none; border-bottom: 0px solid #ddd;"><a style="border-bottom: 1px solid #ddd;">事件</a></li>
+                        <li class="uyh" style="list-style: none;"><a style="line-height: 30px;">要素</a>
+                            <ul style="display:flex;padding: 0;border-top: 1px solid #ddd;">
+                                <li style="flex: 1;margin-top: 10px;"><a href="#">人物</a></li>
+                                <li style="flex: 1;margin-top: 10px;"><a href="#" style="white-space: nowrap;">宝可梦</a></li>
+                                <li style="flex: 1;margin-top: 10px;"><a href="#">物品</a></li>
+                                <li style="flex: 1;margin-top: 10px;"><a href="#">场景</a></li>
+                                <li style="flex: 1;margin-top: 10px;"><a href="#">系统</a></li>
+                            </ul>
+                        </li>
+                        <li class="uyh" style="list-style: none"><a style="border-bottom: 1px solid #ddd;">足迹</a></li>
+                        <li class="uyh" style="list-style: none"><a style="line-height: 30px;">行述</a>
+                            <ul style="display:flex;padding: 0;border-top: 1px solid #ddd;">
+                                <li style="flex: 1;list-style: inside;margin-top: 10px;"><a href="#">细节</a></li>
+                                <li style="flex: 1;list-style: inside;margin-top: 10px;"><a href="#">参考</a></li>
+                                <li style="flex: 1;list-style: inside;margin-top: 10px;"><a href="#">错误</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div> -->
+
+        <div><!-- 登场人物 -->
+            <h2 style="border-bottom: 1px solid #a2a9b1;">
+                <span style="border-bottom: 1px dotted black;">登场人物</span>
+            </h2>
+            <div>
+                <select id="" onchange="loadview(this.value)">
+                    <option value="RolesListView">列表视图</option>
+                    <option value="CardView">卡片视图</option>
+                </select>
+            </div>
+            <div style="width:90%; height:500px; border: 1px solid #a2a9b1; margin: 0 auto;">
+                <div id="table-container"></div>
+            </div>
+        </div>
+        <div><!-- 登场人物2 -->
+            <h2><span title="取json文件的一部分导入" style="border-bottom: 1px dotted black;">登场人物2</span></h2>
+            <div id="table-container3"></div>
+        </div>
+
+        <script>
+            // 网页逻辑：
+            // 1. 页面加载时，读取整个json文件，并存储在不同的全局变量（数组）中
+            // 2. JS主动生成标题、信息框、概述、各版译名、各登场的列表视图等
+            // 3. 目录的结构为静态默认
+            var Roles_list = [];
+            var Pokes_list = [];
+            var Version_list = [];
+            var Items_list = [];
+            var Events_list = [];
+            var Systems_list = [];
+            var Locations_list = [];
+
+            // 全局加载，使用async/await语法来处理异步操作
+            async function loadData() {
+                const response = await fetch('roles_test_copy.json');   // http://localhost:8080/
+                const data = await response.json();
+                Roles_list.push(data.Roles);
+                Pokes_list.push(data.Pokes);
+                Version_list.push(data.Version);
+                Items_list.push(data.Items);
+                Events_list.push(data.Events);
+                Systems_list.push(data.Systems);
+                Locations_list.push(data.Locations);
+                console.log(Roles_list);
+            }
+
+            // 当页面加载完成后执行以下函数
+            // async关键字声明一个异步函数，并允许在函数内部使用await关键字，用于等待一个Promise对象的结果
+            window.onload = async function () {
+                await loadData();
+                const tableContainer = document.getElementById('table-container');
+                const table = document.createElement('table');
+                const tableHeadRow = document.createElement('tr');
+                console.log(Roles_list[0][0]);
+                for(const key of Roles_list[0][0]){
+                    const tableHeadCell = document.createElement('th');
+                    tableHeadCell.textContent = key;
+                    console.log(key);
+                    tableHeadRow.appendChild(tableHeadCell);
+                }
+                table.appendChild(tableHeadRow);
+                tableContainer.appendChild(table);
+
+
+                // roles_list.forEach(data=> {
+
+                //     // 使用for...of循环遍历data数组中的每个元素（即每行数据）创建表格内容
+                //     for (const row of data) {
+                //         key_list.forEach(key=>{
+                //             const tableBodyRow = document.createElement('tr');
+                //                 if (row[key]==="None") {continue};
+
+                //             // 检查row[key]是否为数组，若否，则创建td元素
+                //             if (!Array.isArray(row["肖像"])) {
+                //                 const tableBodyCell = document.createElement('td');
+                //                 tableBodyCell.textContent = row["肖像"];
+                //                 tableBodyRow.appendChild(tableBodyCell);
+                //             }
+                //             // 若是，则在创建td元素的同时添加跨行或跨列属性
+                //             else {
+                //                 const tableBodyCell = document.createElement('td');
+                //                 tableBodyCell.textContent = row["肖像"][0];
+                //                 tableBodyRow.appendChild(tableBodyCell);
+                //                 tableBodyCell.rowSpan=row["肖像"][1];
+                //                 tableBodyCell.colSpan=row["肖像"][2];
+                //             }
+                //         })
+                //         if (tableBodyRow) {
+                //             table.appendChild(tableBodyRow);
+                //         }
+                //     }
+
+                //     tableContainer.appendChild(table);
+
+                // })
+
+            }
+        </script>
+
+
+            <script>
+            //     fetch('roles_test.json')   // http://localhost:8080/
+            //         .then(response => response.json())
+            //         .then(data => {
+            //             const table = document.createElement('table');
+            //             const tableHeadRow = document.createElement('tr');
+
+            //             // 所有条目的结构都是相同的，可以从第一个条目的第一个entries中获取列名
+            //             if (data.length > 0 && data[0].entries.length > 0) {
+            //                 for (const key in data[0].entries[0]) {
+            //                     const tableHeadCell = document.createElement('th');
+            //                     tableHeadCell.textContent = key;
+            //                     tableHeadRow.appendChild(tableHeadCell);
+            //                 }
+            //                 table.appendChild(tableHeadRow);
+
+            //                 // 遍历数据，查找category为"你好"的条目
+            //                 data.forEach(item => {
+            //                     if (item.category === '你好') {
+            //                         item.entries.forEach(entry => {
+            //                             const tableBodyRow = document.createElement('tr');
+
+            //                             Object.keys(entry).forEach(key => {
+            //                                 let tableBodyCell = document.createElement('td');
+            //                                 // 检查当前项是否为图片链接
+            //                                 if (typeof entry[key] === 'string' && entry[key].startsWith('http') && entry[key].includes('.jpg') || entry[key].includes('.png') || entry[key].includes('.jpeg') || entry[key].includes('.gif')) {
+            //                                     // 创建并配置img元素
+            //                                     tableBodyCell = document.createElement('td');
+            //                                     const img = document.createElement('img');
+            //                                     img.src = entry[key];
+            //                                     img.alt = `${key} 预览`;
+            //                                     tableBodyCell.appendChild(img);
+            //                                 } else {
+            //                                     // 不是图片链接，直接显示文本
+            //                                     tableBodyCell.textContent = entry[key];
+            //                                 }
+
+            //                                 tableBodyRow.appendChild(tableBodyCell);
+            //                             });
+
+            //                             table.appendChild(tableBodyRow);
+            //                         });
+            //                     }
+            //                 });
+            //             }
+            //             const tableContainer = document.getElementById('table-container3');
+            //             tableContainer.appendChild(table);
+            //         });
+            </script>
+
+            <h2>结构视图</h2>
+
+    </div>
+</body>
+</html>

@@ -36,57 +36,70 @@
                 .append("svg")
                 .attr("width", 960)
                 .attr("height", 600);
- // 创建一个树布局
- var tree = d3.tree()
-            .size([600, 300]);
 
-        // 创建一个根节点
-        var root = d3.hierarchy({
-            "name": "Root",
-            "children": [
-                {
-                    "name": "Child 1",
-                    "children": [
-                        { "name": "Grandchild 1" },
-                        { "name": "Grandchild 2" }
-                    ]
-                },
-                {
-                    "name": "Child 2",
-                    "children": [
-                        { "name": "Grandchild 3" },
-                        { "name": "Grandchild 4" }
-                    ]
-                }
-            ]
-        });
+            // 创建一个树布局
+            var tree = d3.tree()
+            // 设置画布大小为800x-300
+                .size([800, 300]);  // 注意这里将第二个值改为负数
 
-        // 创建链接
-        var link = svg.selectAll(".link")
-            .data(tree(root).links())
-            .enter().append("path")
-            .attr("class", "link")
-            .attr("d", d3.linkVertical()
-                .x(function(d) { return d.y; })
-                .y(function(d) { return d.x; }));
+            // 创建一个根节点
+            var root = d3.hierarchy({
+                "name": "Root",
+                "children": [
+                    {
+                        "name": "Child 1",
+                        "children": [
+                            { "name": "Grandchild 1" },
+                            { "name": "Grandchild 2" }
+                        ]
+                    },
+                    {
+                        "name": "Child 2",
+                        "children": [
+                            { "name": "Grandchild 3" },
+                            { "name": "Grandchild 4" }
+                        ]
+                    }
+                ]
+            });
 
-        // 创建节点
-        var node = svg.selectAll(".node")
-            .data(root.descendants())
-            .enter().append("g")
-            .attr("class", "node")
-            .attr("transform", function(d) { return "translate(" + d.y + "," + d.x + ")"; });
+            // 创建链接
+            var link = svg.selectAll(".link")
+                // 绑定数据
+                .data(tree(root).links())
+                // 进入数据
+                .enter().append("path")
+                // 设置类名
+                .attr("class", "link")
+                // 设置路径
+                .attr("d", d3.linkHorizontal()
+                    // 设置x坐标
+                    .x(function(d) { return d.y; })
+                    // 设置y坐标
+                    .y(function(d) { return d.x; }));
 
-        // 添加圆形节点
-        node.append("circle")
-            .attr("r", 4.5);
+            // 创建节点
+            var node = svg.selectAll(".node")
+            // 将根节点的后代数据绑定到元素上
+                .data(root.descendants())
+                // 为每个数据元素创建一个g元素
+                .enter().append("g")
+                // 为每个g元素添加一个class属性，值为"node"
+                .attr("class", "node")
+                // 为每个g元素添加一个transform属性，值为"translate(" + d.y + "," + d.x + ")"
+                .attr("transform", function(d) { return "translate(" + d.y + "," + d.x + ")"; });
 
-        // 添加文本
-        node.append("text")
-            .attr("dy", 3)
-            .attr("x", function(d) { return d.children ? -8 : 8; })
-            .style("text-anchor", function(d) { return d.children ? "end" : "start"; })
-            .text(function(d) { return d.data.name; });
+            // 添加圆形节点
+            node.append("circle")
+        // 设置圆的半径为4.5
+                .attr("r", 4.5);
+
+            // 添加文本
+            node.append("text")
+                .attr("dy", 3) // 设置文本的垂直偏移量
+                .attr("x", function(d) { return d.children ? -8 : 8; }) // 根据是否有子节点设置文本的水平位置
+                .style("text-anchor", function(d) { return d.children ? "end" : "start"; }) // 根据是否有子节点设置文本的锚点
+                .text(function(d) { return d.data.name; }); // 设置文本内容为节点的名称
         </script>
     </div>
 
