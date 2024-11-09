@@ -229,7 +229,7 @@
 
             // 全局加载，使用async/await语法来处理异步操作
             async function loadData() {
-                const response = await fetch('roles_test_copy.json');   // http://localhost:8080/
+                const response = await fetch('/PokeSpePlus/roles_test_copy.json');   // http://localhost:8080/
                 const data = await response.json();
                 Roles_list.push(data.Roles);
                 Pokes_list.push(data.Pokes);
