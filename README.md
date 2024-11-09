@@ -1,2 +1,2 @@
 # PokeSpePlus
-PokesSpedia Plus
+Pokes Special Wikipedia Plus
